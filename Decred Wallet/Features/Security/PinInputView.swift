@@ -15,7 +15,8 @@ class PinInputView: UIView {
     
     var maxNumberOfDigits: Int = Int(LONG_MAX)
     
-    var maxNumberOfDigits: Int = 5 //Int(LONG_LONG_MAX) using LONG_LONG_MAX causes the app to crach once the input exceeds 5 characters. hardcoding it to 5 stopped this
+    var maxNumberOfDigits: Int = Int(LONG_MAX)
+    
     var pin: String = "" {
         didSet {
             self.subviews.forEach{ $0.removeFromSuperview() }
@@ -51,34 +52,36 @@ class PinInputView: UIView {
     }
     
     override func draw(_ frame: CGRect) {
-        self.layer.sublayers?.removeAll()
-        self.drawCells(in: frame)
-    }
-    
-    func drawCells(in frame: CGRect) {
+        
         // clear current views
         self.layer.sublayers?.removeAll()
         
         if self.subviews.count > 0 {
-            self.subviews[0].removeFromSuperview()
+            self.subviews.forEach{ $0.removeFromSuperview() }
         }
         
-        if pin.count > PinInputView.maxNumberOfPinCircles {
-            self.drawPinLabel(in: frame)
+        self.drawCells(in: frame)
+    }
+    
+    func drawCells(in frame: CGRect) {
+        
+        if (pin.count > PinInputView.maxNumberOfPinCircles) {
+            self.drawPinLabel()
         } else {
             self.drawPinCircles(in: frame)
         }
     }
     
-    func drawPinLabel(frame: CGRect) {
+    func drawPinLabel() {
         let pinDigitsCount = String(pin.count)
-        let pinLabel = UILabel(frame: frame) // Set the label bounds to resolve any ambiguity. Using UILabel() without proper bounds causes the app to crash as the label is unaware of where it should be positioned or what it should look like.
-        pinLabel.translatesAutoresizingMaskIntoConstraints = false // Neccesarry to prevent autolayout constraints from setting conflicting attributes to the label
+        let pinLabel = UILabel(frame: self.bounds) // Set the label bounds to resolve any ambiguity
+        pinLabel.translatesAutoresizingMaskIntoConstraints = false
         pinLabel.text = pinDigitsCount
         pinLabel.textAlignment = .center
         pinLabel.textColor = #colorLiteral(red: 0.2537069321, green: 0.8615272641, blue: 0.7028611302, alpha: 1)
         pinLabel.font = pinLabel.font.withSize(25)
-        self.addSubview(pinLabel)
+        // View is set, add it to parent
+        addSubview(pinLabel)
     }
     
     func drawPinCircles(in frame: CGRect) {
