@@ -55,8 +55,15 @@ class PinInputView: UIView {
     }
     
     func drawCells(in frame: CGRect) {
-        if self.totalWidthRequiredToDisplayAllPinCircles > frame.width {
-            self.drawPinLabel(in: frame)
+        // clear current views
+        self.layer.sublayers?.removeAll()
+        
+        if self.subviews.count > 0 {
+            self.subviews[0].removeFromSuperview()
+        }
+        
+        if pin.count > PinInputView.maxNumberOfPinCircles {
+            self.drawPinLabel()
         } else {
             self.drawPinCircles(in: frame)
         }
