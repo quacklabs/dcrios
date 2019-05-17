@@ -62,7 +62,6 @@ class RequestPinViewController: SecurityBaseViewController {
     func pinUpdated(pin: String) {
         if self.requestPinConfirmation {
             let pinStrength = PinPasswordStrength.percentageStrength(of: pin)
-            
             self.prgsPinStrength.progressTintColor = pinStrength.color
             self.prgsPinStrength.progress = pinStrength.strength
         }
@@ -94,7 +93,7 @@ class RequestPinViewController: SecurityBaseViewController {
                 self.pinInputView.clear()
                 self.prgsPinStrength.progress = 0
                 
-                // We are starting again, show the strenght meter
+                // We're re-requesting input, show the strength meter
                 self.pinStrengthLabel.isHidden = false
                 self.prgsPinStrength.isHidden = false
             }
