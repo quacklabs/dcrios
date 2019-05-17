@@ -17,6 +17,7 @@ class RequestPinViewController: SecurityBaseViewController {
     var onUserEnteredPin: ((_ pin: String) -> Void)?
     
     var requestPinConfirmation = false
+    
     var pinToConfirm: String = ""
     
     @IBOutlet weak var cancelBtn: UIButton!
@@ -60,6 +61,7 @@ class RequestPinViewController: SecurityBaseViewController {
     func pinUpdated(pin: String) {
         if self.requestPinConfirmation {
             let pinStrength = PinPasswordStrength.percentageStrength(of: pin)
+            
             self.prgsPinStrength.progressTintColor = pinStrength.color
             self.prgsPinStrength.progress = pinStrength.strength
         }
@@ -76,15 +78,26 @@ class RequestPinViewController: SecurityBaseViewController {
             self.pinInputView.clear()
             self.headerText.text = "Confirm \(self.securityFor) PIN"
             self.prgsPinStrength.progress = 0
+            
+            // We are confirming pin, we hide the pin strength meter
+            self.pinStrengthLabel.isHidden = true
+            self.prgsPinStrength.isHidden = true
         }
         else if requestPinConfirmation && pinToConfirm != pinInputView.pin {
             self.pinToConfirm = ""
             self.headerText.text = "PINs did not match. Try again"
+            
+            // Reset the input
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.headerText.text = "Create \(self.securityFor) PIN"
                 self.pinInputView.clear()
                 self.prgsPinStrength.progress = 0
+                
+                // We are starting again, show the strenght meter
+                self.pinStrengthLabel.isHidden = false
+                self.prgsPinStrength.isHidden = false
             }
+            
         } else {
             // only quit VC if not part of the SecurityVC tabs
             if self.tabBarController == nil {
