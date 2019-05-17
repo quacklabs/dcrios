@@ -79,7 +79,7 @@ class RequestPinViewController: SecurityBaseViewController {
             self.headerText.text = String(format: LocalizedStrings.confirmPIN, self.securityFor)
             self.prgsPinStrength.progress = 0
             
-            // We are confirming pin, we hide the pin strength meter
+            // We are confirming pin, hide the pin strength meter.
             self.pinStrengthLabel.isHidden = true
             self.prgsPinStrength.isHidden = true
         }
@@ -97,7 +97,6 @@ class RequestPinViewController: SecurityBaseViewController {
                 self.pinStrengthLabel.isHidden = false
                 self.prgsPinStrength.isHidden = false
             }
-            
         } else {
             // only quit VC if not part of the SecurityVC tabs
             if self.tabBarController == nil {
