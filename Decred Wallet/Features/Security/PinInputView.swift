@@ -39,19 +39,13 @@ class PinInputView: UIView {
     }
     
     override func draw(_ frame: CGRect) {
-        
         // clear current views
         self.layer.sublayers?.removeAll()
-        
-        if self.subviews.count > 0 {
-            self.subviews.forEach{ $0.removeFromSuperview() }
-        }
-        
+        self.subviews.forEach{ $0.removeFromSuperview() }
         self.drawCells(in: frame)
     }
     
     func drawCells(in frame: CGRect) {
-        
         if (pin.count > PinInputView.maxNumberOfPinCircles) {
             self.drawPinLabel()
         } else {
@@ -67,8 +61,7 @@ class PinInputView: UIView {
         pinLabel.textAlignment = .center
         pinLabel.textColor = #colorLiteral(red: 0.2537069321, green: 0.8615272641, blue: 0.7028611302, alpha: 1)
         pinLabel.font = pinLabel.font.withSize(25)
-        // View is set, add it to parent
-        addSubview(pinLabel)
+        self.addSubview(pinLabel)
     }
     
     func drawPinCircles(in frame: CGRect) {
@@ -104,7 +97,6 @@ class PinInputView: UIView {
         circleShape.fillColor = #colorLiteral(red: 0.2537069321, green: 0.8615272641, blue: 0.7028611302, alpha: 1).cgColor
         circleShape.strokeColor = UIColor.white.cgColor
         circleShape.lineWidth = diameter * PinInputView.circleBorderSizeFactor
-        
         self.layer.addSublayer(circleShape)
     }
 }
