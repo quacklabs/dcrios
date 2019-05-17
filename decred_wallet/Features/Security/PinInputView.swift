@@ -38,7 +38,6 @@ class PinInputView: UIView {
     }
     
     override func draw(_ frame: CGRect) {
-        // clear current views
         self.layer.sublayers?.removeAll()
         self.subviews.forEach{ $0.removeFromSuperview() }
         self.drawCells(in: frame)
@@ -46,16 +45,16 @@ class PinInputView: UIView {
     
     func drawCells(in frame: CGRect) {
         if (pin.count > PinInputView.maxNumberOfPinCircles) {
-            self.drawPinLabel()
+            self.drawPinLabel(frame: frame)
         } else {
             self.drawPinCircles(in: frame)
         }
     }
     
-    func drawPinLabel() {
+    func drawPinLabel(frame: CGRect) {
         let pinDigitsCount = String(pin.count)
-        let pinLabel = UILabel(frame: self.bounds) // Set the label bounds to resolve any ambiguity
-        pinLabel.translatesAutoresizingMaskIntoConstraints = false
+        let pinLabel = UILabel(frame: frame) // Set the label bounds to resolve any ambiguity. Using UILabel() without proper bounds causes the app to crash as the label is unaware of where it should be positioned or what it should look like.
+        pinLabel.translatesAutoresizingMaskIntoConstraints = false // Neccesarry to prevent autolayout constraints from setting conflicting attributes to the label
         pinLabel.text = pinDigitsCount
         pinLabel.textAlignment = .center
         pinLabel.textColor = #colorLiteral(red: 0.2537069321, green: 0.8615272641, blue: 0.7028611302, alpha: 1)
