@@ -15,6 +15,7 @@ class PinInputView: UIView {
     
     var maxNumberOfDigits: Int = Int(LONG_MAX)
     
+    var maxNumberOfDigits: Int = 5 //Int(LONG_LONG_MAX) using LONG_LONG_MAX causes the app to crach once the input exceeds 5 characters. hardcoding it to 5 stopped this
     var pin: String = "" {
         didSet {
             self.subviews.forEach{ $0.removeFromSuperview() }
@@ -55,8 +56,15 @@ class PinInputView: UIView {
     }
     
     func drawCells(in frame: CGRect) {
-        if (pin.count > PinInputView.maxNumberOfPinCircles) {
-            self.drawPinLabel(frame: frame)
+        // clear current views
+        self.layer.sublayers?.removeAll()
+        
+        if self.subviews.count > 0 {
+            self.subviews[0].removeFromSuperview()
+        }
+        
+        if pin.count > PinInputView.maxNumberOfPinCircles {
+            self.drawPinLabel()
         } else {
             self.drawPinCircles(in: frame)
         }
