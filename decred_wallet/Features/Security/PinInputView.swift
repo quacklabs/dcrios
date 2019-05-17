@@ -13,7 +13,8 @@ class PinInputView: UIView {
     static let circleBorderSizeFactor: CGFloat = 0.15
     static let maxNumberOfPinCircles = 5
     
-    var maxNumberOfDigits: Int = 5 //Int(LONG_LONG_MAX) using LONG_LONG_MAX causes the app to crach once the input exceeds 5 characters. hardcoding it to 5 stopped this
+    var maxNumberOfDigits: Int = Int(LONG_MAX)
+    
     var pin: String = "" {
         didSet {
             self.setNeedsDisplay()
@@ -37,18 +38,20 @@ class PinInputView: UIView {
     }
     
     override func draw(_ frame: CGRect) {
-        self.drawCells(in: frame)
-    }
-    
-    func drawCells(in frame: CGRect) {
+        
         // clear current views
         self.layer.sublayers?.removeAll()
         
         if self.subviews.count > 0 {
-            self.subviews[0].removeFromSuperview()
+            self.subviews.forEach{ $0.removeFromSuperview() }
         }
         
-        if pin.count > PinInputView.maxNumberOfPinCircles {
+        self.drawCells(in: frame)
+    }
+    
+    func drawCells(in frame: CGRect) {
+        
+        if (pin.count > PinInputView.maxNumberOfPinCircles) {
             self.drawPinLabel()
         } else {
             self.drawPinCircles(in: frame)
@@ -57,14 +60,14 @@ class PinInputView: UIView {
     
     func drawPinLabel() {
         let pinDigitsCount = String(pin.count)
-        
-        let pinLabel = UILabel()
-        pinLabel.text = String(pinDigitsCount)
+        let pinLabel = UILabel(frame: self.bounds) // Set the label bounds to resolve any ambiguity
+        pinLabel.translatesAutoresizingMaskIntoConstraints = false
+        pinLabel.text = pinDigitsCount
         pinLabel.textAlignment = .center
         pinLabel.textColor = #colorLiteral(red: 0.2537069321, green: 0.8615272641, blue: 0.7028611302, alpha: 1)
         pinLabel.font = pinLabel.font.withSize(25)
-        
-        self.addSubview(pinLabel)
+        // View is set, add it to parent
+        addSubview(pinLabel)
     }
     
     func drawPinCircles(in frame: CGRect) {
