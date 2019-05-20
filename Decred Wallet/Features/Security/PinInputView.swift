@@ -51,7 +51,6 @@ class PinInputView: UIView {
     
     override func draw(_ frame: CGRect) {
         self.layer.sublayers?.removeAll()
-        self.subviews.forEach{ $0.removeFromSuperview() }
         self.drawCells(in: frame)
     }
     
