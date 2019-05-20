@@ -61,6 +61,8 @@ class SecurityViewController: SecurityBaseViewController {
         tabController?.selectedIndex = 0
         btnPassword.backgroundColor = #colorLiteral(red: 0.9529411765, green: 0.9607843137, blue: 0.9647058824, alpha: 1)
         btnPin.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        
+        
     }
     
     func activatePinTab() {
