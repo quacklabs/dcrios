@@ -20,7 +20,7 @@
         <!--Right View Controller-->
         <scene sceneID="bvR-W9-qnC">
             <objects>
-                <viewController storyboardIdentifier="RightViewController" id="In8-Mc-X7I" customClass="RightViewController" customModule="decred_wallet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RightViewController" id="In8-Mc-X7I" customClass="RightViewController" customModule="Decred_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Uwi-SA-NOq"/>
                         <viewControllerLayoutGuide type="bottom" id="wFn-Mp-0fQ"/>
@@ -49,7 +49,7 @@
         <!--Help View Controller-->
         <scene sceneID="KmC-zu-2VC">
             <objects>
-                <viewController storyboardIdentifier="HelpViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="W0n-B7-KjY" customClass="HelpViewController" customModule="decred_wallet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HelpViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="W0n-B7-KjY" customClass="HelpViewController" customModule="Decred_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PrI-zG-xl5"/>
                         <viewControllerLayoutGuide type="bottom" id="fjK-mu-Ueq"/>
@@ -102,7 +102,7 @@
         <!--Add Acount View Controller-->
         <scene sceneID="Zdm-x4-gsR">
             <objects>
-                <viewController storyboardIdentifier="addaccount" id="oZ5-dq-itK" customClass="AddAcountViewController" customModule="decred_wallet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="addaccount" id="oZ5-dq-itK" customClass="AddAcountViewController" customModule="Decred_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="J9T-CS-TKg"/>
                         <viewControllerLayoutGuide type="bottom" id="CkP-ir-LHb"/>
@@ -202,7 +202,7 @@
         <!--Receive View Controller-->
         <scene sceneID="adq-KJ-u5Z">
             <objects>
-                <viewController storyboardIdentifier="ReceiveViewController" id="pwN-Wv-Ioh" customClass="ReceiveViewController" customModule="decred_wallet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ReceiveViewController" id="pwN-Wv-Ioh" customClass="ReceiveViewController" customModule="Decred_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QEC-CO-vAa"/>
                         <viewControllerLayoutGuide type="bottom" id="4w6-Ph-vE3"/>
@@ -235,7 +235,7 @@
                                                 <color key="textColor" red="0.035294117647058823" green="0.078431372549019607" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fvx-Vc-1a6" customClass="DropMenuButton" customModule="decred_wallet" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fvx-Vc-1a6" customClass="DropMenuButton" customModule="Decred_Wallet" customModuleProvider="target">
                                                 <rect key="frame" x="72.5" y="0.0" width="257.5" height="36"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="19"/>
@@ -319,7 +319,7 @@
         <!--Settings Controller-->
         <scene sceneID="E8C-IB-Uk6">
             <objects>
-                <tableViewController storyboardIdentifier="SettingsController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="D9F-Sd-24p" customClass="SettingsController" customModule="decred_wallet" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SettingsController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="D9F-Sd-24p" customClass="SettingsController" customModule="Decred_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" bouncesZoom="NO" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="3Wp-X3-OIp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -767,7 +767,7 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8yy-Hu-jNf">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <inset key="titleEdgeInsets" minX="20" minY="10" maxX="0.0" maxY="0.0"/>
+                                                    <inset key="titleEdgeInsets" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     <state key="normal" title="Delete Wallet">
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
@@ -824,7 +824,7 @@
         <!--Security Menu View Controller-->
         <scene sceneID="vdv-Qf-mQT">
             <objects>
-                <viewController storyboardIdentifier="SecurityMenuViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hNg-Pd-45z" customClass="SecurityMenuViewController" customModule="decred_wallet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SecurityMenuViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hNg-Pd-45z" customClass="SecurityMenuViewController" customModule="Decred_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8kT-Yd-i6y"/>
                         <viewControllerLayoutGuide type="bottom" id="W2H-1v-XCm"/>
@@ -1028,7 +1028,7 @@
         <!--Certificate View Controller-->
         <scene sceneID="6nh-mZ-Xhx">
             <objects>
-                <viewController id="fV9-F9-h7o" customClass="certificateViewController" customModule="decred_wallet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="fV9-F9-h7o" customClass="certificateViewController" customModule="Decred_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="27D-oQ-jMz"/>
                         <viewControllerLayoutGuide type="bottom" id="4Nc-ZT-SkG"/>
@@ -1259,7 +1259,7 @@
         <!--Server Set Table View Controller-->
         <scene sceneID="dWF-N1-sg0">
             <objects>
-                <tableViewController id="KPf-Vc-5eO" customClass="ServerSetTableViewController" customModule="decred_wallet" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="KPf-Vc-5eO" customClass="ServerSetTableViewController" customModule="Decred_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Vvb-X5-M8d">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1329,7 +1329,7 @@
         <!--Network Mode Table View Controller-->
         <scene sceneID="eRR-1R-0HC">
             <objects>
-                <tableViewController storyboardIdentifier="networkmode" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HwO-Ms-2bE" customClass="NetworkModeTableViewController" customModule="decred_wallet" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="networkmode" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HwO-Ms-2bE" customClass="NetworkModeTableViewController" customModule="Decred_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="hE3-xS-Acx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1393,7 +1393,7 @@
         <!--Wallet Log View Controller-->
         <scene sceneID="Z5w-DS-0qO">
             <objects>
-                <viewController id="YSv-gj-0dD" customClass="WalletLogViewController" customModule="decred_wallet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="YSv-gj-0dD" customClass="WalletLogViewController" customModule="Decred_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="96j-Va-bVA"/>
                         <viewControllerLayoutGuide type="bottom" id="xBR-2k-0G1"/>
@@ -1428,7 +1428,7 @@
         <!--Start Screen View Controller-->
         <scene sceneID="PGy-QW-K8H">
             <objects>
-                <viewController storyboardIdentifier="StartScreenViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BLx-jo-l82" customClass="StartScreenViewController" customModule="decred_wallet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StartScreenViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BLx-jo-l82" customClass="StartScreenViewController" customModule="Decred_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6l6-ug-aLI"/>
                         <viewControllerLayoutGuide type="bottom" id="u8k-lY-6JX"/>
@@ -1507,7 +1507,7 @@
         <!--Peer Set Table View Controller-->
         <scene sceneID="CDq-Z7-nHX">
             <objects>
-                <tableViewController id="OWA-i4-gJj" customClass="PeerSetTableViewController" customModule="decred_wallet" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="OWA-i4-gJj" customClass="PeerSetTableViewController" customModule="Decred_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Zdl-iy-TBy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1577,7 +1577,7 @@
         <!--Confirm To Send Fund View Controller-->
         <scene sceneID="4e7-6w-vZ3">
             <objects>
-                <viewController storyboardIdentifier="ConfirmToSendFundViewController" id="wZi-pX-SJm" customClass="ConfirmToSendFundViewController" customModule="decred_wallet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ConfirmToSendFundViewController" id="wZi-pX-SJm" customClass="ConfirmToSendFundViewController" customModule="Decred_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="F7P-Ru-SrX"/>
                         <viewControllerLayoutGuide type="bottom" id="A13-Md-lay"/>
@@ -1749,7 +1749,7 @@
         <!--Account View Controller-->
         <scene sceneID="dnl-tR-kvs">
             <objects>
-                <viewController storyboardIdentifier="AccountViewController" id="3g1-Gv-gpJ" customClass="AccountViewController" customModule="decred_wallet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AccountViewController" id="3g1-Gv-gpJ" customClass="AccountViewController" customModule="Decred_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4bf-AZ-g2X"/>
                         <viewControllerLayoutGuide type="bottom" id="OIc-gl-RFd"/>
@@ -1790,7 +1790,7 @@
         <!--Wifi Confirmation Controller-->
         <scene sceneID="MfV-xT-sfg">
             <objects>
-                <viewController storyboardIdentifier="WifiSyncView" id="KBi-SW-SuJ" customClass="WifiConfirmationController" customModule="decred_wallet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WifiSyncView" id="KBi-SW-SuJ" customClass="WifiConfirmationController" customModule="Decred_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="F9C-2k-wiY"/>
                         <viewControllerLayoutGuide type="bottom" id="p1I-a2-rWz"/>
@@ -1901,7 +1901,7 @@
         <!--Currency Option Table View Controller-->
         <scene sceneID="4Bp-Vb-o0d">
             <objects>
-                <tableViewController storyboardIdentifier="CurrencyConversion" useStoryboardIdentifierAsRestorationIdentifier="YES" id="haa-rs-KeR" customClass="CurrencyOptionTableViewController" customModule="decred_wallet" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="CurrencyConversion" useStoryboardIdentifierAsRestorationIdentifier="YES" id="haa-rs-KeR" customClass="CurrencyOptionTableViewController" customModule="Decred_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="flG-a2-h9J">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1965,7 +1965,7 @@
         <!--Send View Controller-->
         <scene sceneID="Jhn-vV-6fZ">
             <objects>
-                <viewController storyboardIdentifier="SendViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qTZ-86-G1m" customClass="SendViewController" customModule="decred_wallet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SendViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qTZ-86-G1m" customClass="SendViewController" customModule="Decred_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="g25-kr-M7Z"/>
                         <viewControllerLayoutGuide type="bottom" id="k8E-Ze-WJl"/>
@@ -2004,7 +2004,7 @@
                                                 <color key="textColor" red="0.3803921569" green="0.45098039220000002" blue="0.52549019610000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bjm-51-opK" customClass="DropMenuButton" customModule="decred_wallet" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bjm-51-opK" customClass="DropMenuButton" customModule="Decred_Wallet" customModuleProvider="target">
                                                 <rect key="frame" x="86" y="0.0" width="222.5" height="40"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="16"/>
@@ -2056,7 +2056,7 @@
                                                 <color key="textColor" red="0.3803921569" green="0.45098039220000002" blue="0.52549019610000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OOo-FP-t3v" customClass="DropMenuButton" customModule="decred_wallet" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OOo-FP-t3v" customClass="DropMenuButton" customModule="Decred_Wallet" customModuleProvider="target">
                                                 <rect key="frame" x="86" y="0.0" width="222.5" height="33"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="16"/>
@@ -2166,7 +2166,7 @@
                                                                         <color key="textColor" red="0.3803921569" green="0.45098039220000002" blue="0.52549019610000003" alpha="0.32167701199999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0.00" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FhZ-tr-W0x" customClass="AmountTextfield" customModule="decred_wallet" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0.00" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FhZ-tr-W0x" customClass="AmountTextfield" customModule="Decred_Wallet" customModuleProvider="target">
                                                                         <rect key="frame" x="91" y="0.0" width="140.5" height="35"/>
                                                                         <color key="textColor" red="0.035294117649999998" green="0.078431372550000003" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -2193,7 +2193,7 @@
                                                                         <color key="textColor" red="0.3803921569" green="0.45098039220000002" blue="0.52549019610000003" alpha="0.32167701199999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0.00" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hva-1O-379" customClass="AmountTextfield" customModule="decred_wallet" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0.00" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hva-1O-379" customClass="AmountTextfield" customModule="Decred_Wallet" customModuleProvider="target">
                                                                         <rect key="frame" x="91" y="0.0" width="140.5" height="0.0"/>
                                                                         <color key="textColor" red="0.035294117649999998" green="0.078431372550000003" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
