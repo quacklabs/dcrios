@@ -46,8 +46,8 @@ class SettingsController: UITableViewController  {
         self.navigationController?.navigationBar.isHidden = false
         self.navigationController?.navigationBar.tintColor = UIColor.black
         self.navigationItem.title = "Settings"
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(exitSettings))
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(save))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(exitSettings))
+
         
         connect_peer_ip?.text = Settings.readOptionalValue(for: Settings.Keys.SPVPeerIP) ?? ""
         server_ip?.text = UserDefaults.standard.string(forKey: "pref_server_ip") ?? ""
@@ -143,15 +143,6 @@ class SettingsController: UITableViewController  {
         }
         
         tableView.reloadData()
-    }
-    
-    @objc func save() -> Void {
-        UserDefaults.standard.set(incoming_notification_switch.isOn, forKey: "pref_notification_switch")
-        UserDefaults.standard.set(spend_uncon_fund.isOn, forKey: "pref_spend_fund_switch")
-        UserDefaults.standard.set(debu_msg.isOn, forKey: "pref_debug_switch")
-        UserDefaults.standard.set(self.cellularSyncSwitch.isOn, forKey: Settings.Keys.SyncOnCellular)
-        UserDefaults.standard.synchronize()
-        self.exitSettings()
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
