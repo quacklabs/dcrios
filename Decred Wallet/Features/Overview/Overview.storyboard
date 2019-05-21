@@ -169,6 +169,11 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="dw3-gk-Jkv" firstAttribute="top" secondItem="ZiD-3T-k8p" secondAttribute="bottom" constant="6" id="2sy-zM-cWs"/>
+                                    <constraint firstItem="ZOH-y6-JvL" firstAttribute="top" secondItem="EJZ-78-Rgs" secondAttribute="top" constant="16" id="7ys-z2-FmP"/>
+                                    <constraint firstItem="a78-px-sif" firstAttribute="top" secondItem="dw3-gk-Jkv" secondAttribute="bottom" constant="6" id="YUy-AI-8hn"/>
+                                </constraints>
                                 <edgeInsets key="layoutMargins" top="16" left="16" bottom="16" right="16"/>
                             </stackView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jod-u0-hi4">

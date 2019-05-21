@@ -45,15 +45,8 @@ class TransactionHistoryViewController: UIViewController {
 
         if AppDelegate.walletLoader.isSynced {
             print(" wallet is synced on history")
-            if (self.Filtercontent.count > 0){
-                self.syncLabel.isHidden = true
-                self.tableView.isHidden = false
-            }else{
-                self.tableView.isHidden = true
-                self.syncLabel.isHidden = false
-                self.syncLabel.text = "No Transactions"
-            }
-            
+            self.syncLabel.isHidden = true
+            self.tableView.isHidden = false
         }
     }
     
@@ -218,6 +211,15 @@ class TransactionHistoryViewController: UIViewController {
 
 extension TransactionHistoryViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+        if(self.Filtercontent.count == 0){
+            let label = UILabel(frame: CGRect(x: 0, y: 0, width: self.tableView.bounds.size.width, height: self.tableView.bounds.size.height)) // Use the table bounds as frame for the label
+            label.text = "No Transactions"
+            label.textAlignment = .center
+            self.tableView.backgroundView = label
+            self.tableView.separatorStyle = .none
+        }
+        
         return Filtercontent.count
     }
     

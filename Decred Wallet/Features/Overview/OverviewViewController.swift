@@ -89,6 +89,7 @@ class OverviewViewController: UIViewController {
     }
     
     func loadRecentActivity() {
+//        self.view.subviews.forEach({$0.removeFromSuperview() })
         DispatchQueue.main.async {
             do {
                 var getTransactionsError: NSError?
@@ -97,12 +98,12 @@ class OverviewViewController: UIViewController {
                 if getTransactionsError != nil {
                     throw getTransactionsError!
                 }
-                
-                self.recentTransactions = try JSONDecoder().decode([Transaction].self, from: transactionsJson!.utf8Bits)
+                self.recentTransactions = try JSONDecoder().decode([Transaction].self, from: transactionsJson!.data(using: .utf8)!)
                 self.recentActivityTableView.reloadData()
             } catch let Error {
                 print(Error)
             }
+            
         }
     }
     
@@ -156,6 +157,7 @@ extension OverviewViewController: NewTransactionNotificationProtocol, ConfirmedT
 
 extension OverviewViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
         return TransactionTableViewCell.height()
     }
     
@@ -173,6 +175,13 @@ extension OverviewViewController: UITableViewDelegate {
 extension OverviewViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
+        if(self.recentTransactions.count == 0){
+            let label = UILabel(frame: CGRect(x: 0, y: 0, width: self.recentActivityTableView.bounds.size.width, height: self.recentActivityTableView.bounds.size.height))
+            label.text = "No Transactions"
+            label.textAlignment = .center
+            self.recentActivityTableView.backgroundView = label
+            self.recentActivityTableView.separatorStyle = .none
+        }
         return self.recentTransactions.count
     }
     
