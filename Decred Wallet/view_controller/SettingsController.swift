@@ -105,7 +105,7 @@ class SettingsController: UITableViewController  {
     func loadDate() -> Void {
         let network_value = UserDefaults.standard.integer(forKey: "network_mode")
         let currency_value = UserDefaults.standard.integer(forKey: "currency")
-        version?.text = UserDefaults.standard.string(forKey: "app_version") ?? "Pre-release"
+        version?.text = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String
         
         let dateformater = DateFormatter()
         dateformater.dateFormat = "yyyy-MM-dd"
