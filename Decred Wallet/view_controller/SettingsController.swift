@@ -145,15 +145,6 @@ class SettingsController: UITableViewController  {
         tableView.reloadData()
     }
     
-    @objc func save() -> Void {
-        UserDefaults.standard.set(incoming_notification_switch.isOn, forKey: "pref_notification_switch")
-        UserDefaults.standard.set(spend_uncon_fund.isOn, forKey: "pref_spend_fund_switch")
-        UserDefaults.standard.set(debu_msg.isOn, forKey: "pref_debug_switch")
-        UserDefaults.standard.set(self.cellularSyncSwitch.isOn, forKey: Settings.Keys.SyncOnCellular)
-        UserDefaults.standard.synchronize()
-        self.exitSettings()
-    }
-    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if !start_Pin.isOn && indexPath.section == 0 && indexPath.row == 2 {
             return 0
