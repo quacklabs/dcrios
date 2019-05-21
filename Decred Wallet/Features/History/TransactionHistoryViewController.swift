@@ -45,8 +45,15 @@ class TransactionHistoryViewController: UIViewController {
 
         if AppDelegate.walletLoader.isSynced {
             print(" wallet is synced on history")
-            self.syncLabel.isHidden = true
-            self.tableView.isHidden = false
+            if (self.Filtercontent.count > 0){
+                self.syncLabel.isHidden = true
+                self.tableView.isHidden = false
+            }else{
+                self.tableView.isHidden = true
+                self.syncLabel.isHidden = false
+                self.syncLabel.text = "No Transactions"
+            }
+            
         }
     }
     

@@ -15,7 +15,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TransactionHistoryViewController" customModule="DecredWallet" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TransactionHistoryViewController" customModule="Decred_Wallet" customModuleProvider="target">
             <connections>
                 <outlet property="btnFilter" destination="LZb-hI-JcZ" id="loI-kz-r9q"/>
                 <outlet property="syncLabel" destination="YMV-O4-AW4" id="IhF-CQ-goG"/>
@@ -44,7 +44,7 @@
                         <constraint firstAttribute="height" constant="24" id="ix7-kb-jlO"/>
                     </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LZb-hI-JcZ" customClass="DropMenuButton" customModule="DecredWallet" customModuleProvider="target">
+                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LZb-hI-JcZ" customClass="DropMenuButton" customModule="Decred_Wallet" customModuleProvider="target">
                     <rect key="frame" x="217" y="29" width="132" height="45"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="132" id="de2-Z0-6zu"/>

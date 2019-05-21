@@ -15,7 +15,7 @@ class OverviewViewController: UIViewController {
     @IBOutlet weak var fetchingBalanceIndicator: UIImageView!
     @IBOutlet weak var totalBalanceLabel: UILabel!
     @IBOutlet weak var recentActivityTableView: UITableView!
-    
+        
     var recentTransactions = [Transaction]()
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
@@ -172,6 +172,7 @@ extension OverviewViewController: UITableViewDelegate {
 
 extension OverviewViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return self.recentTransactions.count
     }
     
