@@ -31,7 +31,23 @@
                 <button opaque="NO" contentMode="scaleAspectFit" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LZb-hI-JcZ" customClass="DropMenuButton" customModule="Decred_Wallet" customModuleProvider="target">
                     <rect key="frame" x="227" y="29" width="132" height="45"/>
                     <constraints>
-                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="132" id="de2-Z0-6zu"/>
+                        <constraint firstAttribute="width" constant="186" id="Hgh-w9-fFB"/>
+                        <constraint firstAttribute="height" constant="45" id="VMd-db-sBn"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow-1" translatesAutoresizingMaskIntoConstraints="NO" id="rA7-jS-dhT">
+                    <rect key="frame" x="343" y="39" width="27" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="27" id="Jdj-k0-gtD"/>
+                        <constraint firstAttribute="height" constant="24" id="ix7-kb-jlO"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LZb-hI-JcZ" customClass="DropMenuButton" customModule="Decred_Wallet" customModuleProvider="target">
+                    <rect key="frame" x="217" y="29" width="132" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="132" id="de2-Z0-6zu"/>
                         <constraint firstAttribute="height" constant="45" id="x7o-03-zTf"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
