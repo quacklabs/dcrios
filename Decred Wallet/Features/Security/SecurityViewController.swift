@@ -46,9 +46,6 @@ class SecurityViewController: SecurityBaseViewController {
     }
     
     override func viewDidLoad() {
-        self.btnPassword.setBackgroundColor(UIColor.appColors.transparentThinGray, for: .highlighted)
-        self.btnPin.setBackgroundColor(UIColor.appColors.transparentThinGray, for: .highlighted)
-        
         // delay before activating initial tab to allow borders show properly
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             if self.initialSecurityType == SecurityViewController.SECURITY_TYPE_PIN {
@@ -71,26 +68,21 @@ class SecurityViewController: SecurityBaseViewController {
     
     func activatePasswordTab() {
         tabController?.selectedIndex = 0
-        btnPassword.backgroundColor = #colorLiteral(red: 0.9529411765, green: 0.9607843137, blue: 0.9647058824, alpha: 1)
-        btnPin.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        
-        // Add border around password tab and remove border around PIN tab
-        btnPassword.layer.borderColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
-        btnPassword.layer.borderWidth = CGFloat(1.8)
-        btnPin.layer.borderColor = #colorLiteral(red: 0.9529411765, green: 0.9607843137, blue: 0.9647058824, alpha: 1)
-        btnPin.layer.borderWidth = 0
-        
+        // activate password button
+        btnPassword.backgroundColor = UIColor.appColors.offWhite
+        btnPassword.addBorders(atPositions: [.right, .bottom])
+        // deactivate pin button
+        btnPin.backgroundColor = UIColor.white
+        btnPin.removeBorders(atPositions: .left, .bottom)
     }
     
     func activatePinTab() {
         tabController?.selectedIndex = 1
-        btnPin.backgroundColor = #colorLiteral(red: 0.9529411765, green: 0.9607843137, blue: 0.9647058824, alpha: 1)
-        btnPassword.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        
-        // Add border around PIN tab and remove border around Password tab
-        btnPin.layer.borderColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
-        btnPin.layer.borderWidth = CGFloat(1.8)
-        btnPassword.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        btnPassword.layer.borderWidth = 0
+        // activate pin button
+        btnPin.backgroundColor = UIColor.appColors.offWhite
+        btnPin.addBorders(atPositions: [.left, .bottom])
+        // deactivate password button
+        btnPassword.backgroundColor = UIColor.white
+        btnPassword.removeBorders(atPositions: .right, .bottom)
     }
 }
