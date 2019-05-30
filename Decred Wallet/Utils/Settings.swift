@@ -26,8 +26,6 @@ class Settings {
         static let IncomingNotification = "pref_notification_switch"
         static let CurrencyConversionOption = "currency_conversion_option"
         static let NetworkMode = "network_mode"
-        
-        static let LastTxHash = "last_tx_hash"
     }
     
     static func readValue<T>(for key: String) -> T {

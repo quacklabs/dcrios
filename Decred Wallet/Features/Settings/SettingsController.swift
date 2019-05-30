@@ -5,17 +5,19 @@
 // Copyright (c) 2018-2019 The Decred developers
 // Use of this source code is governed by an ISC
 // license that can be found in the LICENSE file.
-
 import Foundation
 import UIKit
 import JGProgressHUD
-import Dcrlibwallet
 
 class SettingsController: UITableViewController  {
     @IBOutlet weak var changeStartPINCell: UITableViewCell!
+    @IBOutlet weak var peer_cell: UIView!
     @IBOutlet weak var connectPeer_cell: UITableViewCell!
     @IBOutlet weak var server_cell: UITableViewCell!
     @IBOutlet weak var certificate_cell: UITableViewCell!
+    @IBOutlet weak var serverAdd_label: UILabel!
+    @IBOutlet weak var connect_ip_label: UILabel!
+    @IBOutlet weak var certificat_label: UILabel!
     @IBOutlet weak var network_mode_subtitle: UILabel!
     @IBOutlet weak var network_mode: UITableViewCell!
     @IBOutlet weak var Start_Pin_cell: UITableViewCell!
@@ -31,12 +33,11 @@ class SettingsController: UITableViewController  {
     @IBOutlet weak var incoming_notification_switch: UISwitch!
     @IBOutlet weak var start_Pin: UISwitch!
     @IBOutlet weak var currency_subtitle: UILabel!
-    @IBOutlet weak var certificateLabel: UILabel!
-    @IBOutlet weak var serverAddressLabel: UILabel!
-    @IBOutlet weak var connectIpDesc: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadDate()
+        
         self.spend_uncon_fund.addTarget(self, action: #selector(switchChanged), for: UIControl.Event.valueChanged)
         self.incoming_notification_switch.addTarget(self, action: #selector(switchChanged), for: UIControl.Event.valueChanged)
         self.cellularSyncSwitch.addTarget(self, action: #selector(switchChanged), for: UIControl.Event.valueChanged)
@@ -49,7 +50,7 @@ class SettingsController: UITableViewController  {
             fieldToUpdate = Settings.Keys.SpendUnconfirmed
             
         case self.incoming_notification_switch:
-            fieldToUpdate = Settings.Keys.IncomingNotification
+            fieldToUpdate = "pref_notification_switch"
             
         case self.cellularSyncSwitch:
             fieldToUpdate = Settings.Keys.SyncOnCellular
@@ -68,7 +69,7 @@ class SettingsController: UITableViewController  {
         
         self.navigationController?.navigationBar.isHidden = false
         self.navigationController?.navigationBar.tintColor = UIColor.black
-        self.navigationItem.title = LocalizedStrings.settings
+        self.navigationItem.title = "Settings"
         
         if self.isModal {
             self.addNavigationBackButton()
@@ -77,31 +78,31 @@ class SettingsController: UITableViewController  {
         }
         
         connect_peer_ip?.text = Settings.readOptionalValue(for: Settings.Keys.SPVPeerIP) ?? ""
-        server_ip?.text = Settings.readOptionalValue(for: Settings.Keys.RemoteServerIP) ?? ""
+        server_ip?.text = UserDefaults.standard.string(forKey: "pref_server_ip") ?? ""
         
-        loadSettingsData()
+        loadDate()
         self.checkStartupSecurity()
 
         if Settings.networkMode == 0 {
-            network_mode_subtitle?.text = LocalizedStrings.spv
+            network_mode_subtitle?.text = "Simplified Payment Verification"
             self.certificate_cell.isUserInteractionEnabled = false
             self.server_cell.isUserInteractionEnabled = false
             self.connectPeer_cell.isUserInteractionEnabled = true
             self.server_ip.textColor = UIColor.lightGray
-            self.certificateLabel.textColor = UIColor.lightGray
+            self.certificat_label.textColor = UIColor.lightGray
             self.connect_peer_ip.textColor = UIColor.darkText
-            self.serverAddressLabel.textColor = UIColor.lightGray
-            self.connectIpDesc.textColor = UIColor.darkText
+            self.serverAdd_label.textColor = UIColor.lightGray
+            self.connect_ip_label.textColor = UIColor.darkText
         } else {
-            network_mode_subtitle?.text = LocalizedStrings.remoteFullNode
+            network_mode_subtitle?.text = "Remote Full Node"
             self.certificate_cell.isUserInteractionEnabled = true
             self.server_cell.isUserInteractionEnabled = true
             self.connectPeer_cell.isUserInteractionEnabled = false
             self.connect_peer_ip.textColor = UIColor.lightGray
-            self.certificateLabel.textColor = UIColor.darkText
+            self.certificat_label.textColor = UIColor.darkText
             self.server_ip.textColor = UIColor.darkText
-            self.serverAddressLabel.textColor = UIColor.darkText
-            self.connectIpDesc.textColor = UIColor.lightGray
+            self.serverAdd_label.textColor = UIColor.darkText
+            self.connect_ip_label.textColor = UIColor.lightGray
         }
     }
     
@@ -118,7 +119,7 @@ class SettingsController: UITableViewController  {
         })
     }
     
-    func loadSettingsData() -> Void {
+    func loadDate() -> Void {
         version?.text = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String
         
         let dateformater = DateFormatter()
@@ -126,20 +127,20 @@ class SettingsController: UITableViewController  {
         build?.text = dateformater.string(from: AppDelegate.compileDate as Date)
         spend_uncon_fund?.setOn(Settings.spendUnconfirmed, animated: false)
         connect_peer_ip?.text = Settings.readOptionalValue(for: Settings.Keys.SPVPeerIP) ?? ""
-        server_ip?.text = Settings.readOptionalValue(for: Settings.Keys.RemoteServerIP) ?? ""
-        incoming_notification_switch?.setOn(Settings.incomingNotificationEnabled, animated: true)
+        server_ip?.text = UserDefaults.standard.string(forKey: "pref_server_ip") ?? ""
+        incoming_notification_switch?.setOn(UserDefaults.standard.bool(forKey: "pref_notification_switch"), animated: true)
         
         self.cellularSyncSwitch.isOn = Settings.readValue(for: Settings.Keys.SyncOnCellular)
         
         if Settings.networkMode == 0 {
-            network_mode_subtitle?.text = LocalizedStrings.spv
+            network_mode_subtitle?.text = "Simplified Payment Verification (SPV)"
         } else {
-            network_mode_subtitle?.text = LocalizedStrings.remoteFullNode
+            network_mode_subtitle?.text = "Remote Full Node"
         }
         
         switch Settings.currencyConversionOption {
         case .None:
-            currency_subtitle?.text = LocalizedStrings.none
+            currency_subtitle?.text = "None"
         case .Bittrex:
             currency_subtitle?.text = "USD (bittrex)"
         }
@@ -160,160 +161,136 @@ class SettingsController: UITableViewController  {
         tableView.reloadData()
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch section {
-        case 0:
-            return LocalizedStrings.general.capitalized
-        case 1:
-            return LocalizedStrings.connection.capitalized
-        case 2:
-            return LocalizedStrings.about.capitalized
-        case 3:
-            return LocalizedStrings.debug.capitalized
-        default:
-            return ""
-        }
-    }
-    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let isWalletOpen = AppDelegate.walletLoader.wallet?.walletOpened() ?? false
-        
-        if indexPath.section == 0 {
-            switch indexPath.row {
-            case 0: // change spending pin/password, requires wallet to be opened.
-                return isWalletOpen ? 44 : 0
-                
-            case 1: // enable startup pin/password, requires wallet to be opened.
-                return isWalletOpen ? 44 : 0
-                
-            case 2: // change startup pin/password, requires wallet to be opened and startup pin to have been enabled previously.
-                return isWalletOpen && start_Pin.isOn ? 44 : 0
-                
-            default:
-                return 44
-            }
+        if indexPath.section == 0 && indexPath.row == 2 {
+            // only show section 1, row 3 (change startup pin/password) if startup pin is on
+            return start_Pin.isOn ? 44 : 0
         }
-        
-        if indexPath.section == 1 {
-            switch indexPath.row {
-            case 1: // connect to peer, only show if network mode is SPV (0).
-                 return Settings.networkMode == 0 ? 44 : 0
-                
-            case 2, 3: // server address and certificate options, only show if network mode is full node (1).
-                return Settings.networkMode == 1 ? 44 : 0
-                
-            default:
-                return 44
-            }
+        if indexPath.section == 1 && indexPath.row == 1 {
+            // only show section 2, row 2 (connect to peer) if network mode is SPV (0)
+            return Settings.networkMode == 0 ? 44 : 0
         }
-        
-        if indexPath.section == 3 {
-            switch indexPath.row {
-            case 0, 2: // rescan blockchain and delete wallet options, requires wallet to be opened.
-                return isWalletOpen ? 44 : 0
-                
-            default:
-                return 44
-            }
+        if indexPath.section == 1 && (indexPath.row == 2 || indexPath.row == 3) {
+            // only show section 2, rows 3 (server address) and 4 (certificate) if network mode is full node (1)
+            return Settings.networkMode == 1 ? 44 : 0
         }
-        
         return 44
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 0 {
-            switch indexPath.row {
-            case 0: // change spending pin/password
-                SpendingPinOrPassword.change(sender: self)
-                
-            case 1: // enable/disable startup pin/password
-                if (start_Pin.isOn) {
-                    StartupPinOrPassword.clear(sender: self, completion: self.checkStartupSecurity)
-                } else {
-                    StartupPinOrPassword.set(sender: self, completion: self.checkStartupSecurity)
-                }
-                
-            case 2: // change startup pin/password
-                StartupPinOrPassword.change(sender: self, completion: self.checkStartupSecurity)
-                
-            default:
-                break
-            }
-        } else if indexPath.section == 3 && indexPath.row == 0 {
-            // rescan blockchain
-            self.showOkAlert(message: LocalizedStrings.rescanConfirm,
-                             title: LocalizedStrings.rescanBlockchain,
-                             onPressOk: self.rescanBlocks,
-                             addCancelAction: true)
-        }
-    }
-    
-    func rescanBlocks() {
-        if AppDelegate.walletLoader.wallet!.isSyncing() {
-            self.showOkAlert(message: LocalizedStrings.syncProgressAlert)
+        if (indexPath.section != 0) {
             return
         }
         
-        do {
-            try AppDelegate.walletLoader.wallet?.rescanBlocks()
-            self.displayToast(LocalizedStrings.scanInProgress)
-        } catch let error {
-            var errorMessage = error.localizedDescription
-            if errorMessage == DcrlibwalletErrInvalid {
-                errorMessage = LocalizedStrings.scanStartedAlready
+        switch indexPath.row {
+        case 0: // change spending pin/password
+            SpendingPinOrPassword.change(sender: self)
+            
+        case 1: // enable/disable startup pin/password
+            if (start_Pin.isOn) {
+                StartupPinOrPassword.clear(sender: self, completion: self.checkStartupSecurity)
+            } else {
+                StartupPinOrPassword.set(sender: self, completion: self.checkStartupSecurity)
             }
-            self.showOkAlert(message: errorMessage, title: LocalizedStrings.rescanFailed)
+            
+        case 2: // change startup pin/password
+            StartupPinOrPassword.change(sender: self, completion: self.checkStartupSecurity)
+            
+        default:
+            break
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ShowDeleteWalletConfirmationDialog" {
-            let deleteWalletDialog = segue.destination as! DeleteWalletConfirmationViewController
-            deleteWalletDialog.onDeleteWalletConfirmed = { password in
-                if password != nil {
-                    self.deleteWallet(spendingPinOrPassword: password!)
-                    return
-                }
-                
-                let requestPinVC = RequestPinViewController.instantiate()
-                requestPinVC.securityFor = LocalizedStrings.spending
-                requestPinVC.showCancelButton = true
-                requestPinVC.onUserEnteredPin = { pin in
-                    self.deleteWallet(spendingPinOrPassword: pin)
-                }
-                self.present(requestPinVC, animated: true, completion: nil)
+    @IBAction func deleteWallet(_ sender: Any) {
+        if SpendingPinOrPassword.currentSecurityType() == "PASSWORD" {
+            let alert = UIAlertController(title: "Delete Wallet", message: "Please enter spending password of your wallet", preferredStyle: .alert)
+            alert.addTextField { textField in
+                textField.placeholder = "password"
+                textField.isSecureTextEntry = true
             }
+
+            let okAction = UIAlertAction(title: "Proceed", style: .default) { _ in
+                let tfPasswd = alert.textFields![0] as UITextField
+                if (tfPasswd.text?.count)! > 0 {
+                    self.handleDeleteWallet(pass: tfPasswd.text!)
+                    alert.dismiss(animated: false, completion: nil)
+                } else {
+                    alert.dismiss(animated: false, completion: nil)
+                    self.showAlert(message: "Password can't be empty.", title: "invalid input")
+                }
+            }
+
+            let CancelAction = UIAlertAction(title: "Cancel", style: .default) { _ in
+                alert.dismiss(animated: false, completion: nil)
+            }
+            alert.addAction(CancelAction)
+            alert.addAction(okAction)
+
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            let requestPinVC = RequestPinViewController.instantiate()
+            requestPinVC.securityFor = "Spending"
+            requestPinVC.showCancelButton = true
+            requestPinVC.onUserEnteredPin = { pin in
+                self.handleDeleteWallet(pass: pin)
+            }
+            self.present(requestPinVC, animated: true, completion: nil)
         }
     }
     
-    func deleteWallet(spendingPinOrPassword: String) {
-        let progressHud = Utils.showProgressHud(withText: LocalizedStrings.deletingWallet)
-        DispatchQueue.global(qos: .background).async {
+    private func showAlert(message: String? , title: String?) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            alert.dismiss(animated: true, completion: nil)
+        }
+        alert.addAction(okAction)
+        
+        DispatchQueue.main.async {
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func handleDeleteWallet(pass: String){
+        let progressHud = Utils.showProgressHud(withText: "Deleting wallet...")
+        let wallet = AppDelegate.walletLoader.wallet!
+        
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            guard let this = self else { return }
+            
             do {
-                try AppDelegate.walletLoader.wallet?.delete(spendingPinOrPassword.utf8Bits)
+                try wallet.unlock(pass.utf8Bits)
+                wallet.shutdown(true)
+
+                let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+                let walletDir = paths[0].appendingPathComponent("dcrlibwallet")
+                try FileManager.default.removeItem(at: walletDir)
+                
                 DispatchQueue.main.async {
                     progressHud.dismiss()
-                    self.walletDeleted()
+                    this.walletDeleted()
                 }
-            } catch let error {
+            } catch {
                 DispatchQueue.main.async {
                     progressHud.dismiss()
+                    let alertController = UIAlertController(title: "", message: "Passphrase was not valid.", preferredStyle: UIAlertController.Style.alert)
+                    alertController.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                    this.present(alertController, animated: true, completion: nil)
                 }
-                print("delete wallet error: \(error.localizedDescription)")
-                self.showOkAlert(message: LocalizedStrings.deleteWalletFailed, title: LocalizedStrings.error)
             }
         }
     }
     
-    // Clear values stored in UserDefaults and restart the app when wallet is deleted.
+    // Clears values stored in UserDefaults and restarts the app when wallet is deleted.
     func walletDeleted() {
-        Settings.clear()
+        UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+        UserDefaults.standard.synchronize()
         
-        // Stop calling wallet.bestBlockTimestamp() to update the best block age displayed on nav menu.
-        self.navigationMenuViewController()?.stopRefreshingBestBlockAge()
+        UIApplication.shared.keyWindow?.rootViewController?.dismiss(animated: false, completion: nil)
         
-        let startScreen = Storyboards.Main.initialViewController()
-        AppDelegate.shared.setAndDisplayRootViewController(startScreen!)
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            let startScreen = Storyboards.Main.initialViewController()
+            appDelegate.setAndDisplayRootViewController(startScreen!)
+        }
     }
     
     static func instantiate() -> Self {

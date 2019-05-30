@@ -2,9 +2,9 @@
 //  CurrencyConversionOptionsViewController.swift
 //  Decred Wallet
 //
-// Copyright (c) 2018-2019 The Decred developers
-// Use of this source code is governed by an ISC
-// license that can be found in the LICENSE file.
+//  Created by Suleiman Abubakar on 30/03/2019.
+//  Copyright © 2019 The Decred developers. All rights reserved.
+//
 
 import UIKit
 
@@ -35,10 +35,6 @@ class CurrencyConversionOptionsViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return LocalizedStrings.currencyConversion.capitalized
-    }
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         none_cell.accessoryType = .none
         usd_cell.accessoryType = .none
