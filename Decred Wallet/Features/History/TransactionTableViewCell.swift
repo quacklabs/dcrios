@@ -33,9 +33,7 @@ class TransactionTableViewCell: BaseTableViewCell {
                 confirmations = Int(bestBlock!) - transaction.Height
                 confirmations += 1
             }
-            
-            let spendUnconfirmedFunds = UserDefaults.standard.bool(forKey: "pref_spend_fund_switch")
-            
+
             if (transaction.Height == -1) {
                 self.status.textColor = UIColor(hex:"#3d659c")
                 self.status.text = LocalizedStrings.pending

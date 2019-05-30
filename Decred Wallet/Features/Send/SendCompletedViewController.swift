@@ -1,4 +1,3 @@
-//
 //  SendCompletedViewController.swift
 //  Decred Wallet
 //
