@@ -14,6 +14,8 @@
 		B36EFD362298617C002753B2 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36EFD352298617C002753B2 /* UIButton.swift */; };
 		B377DB0722A5663700BDF56F /* DeleteWalletConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B377DB0622A5663700BDF56F /* DeleteWalletConfirmationViewController.swift */; };
 		B3967B3D22A75BD400E14432 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3967B3C22A75BD400E14432 /* UITableView.swift */; };
+		B36255B622A11A9500C62946 /* SecurityMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36255B422A11A9500C62946 /* SecurityMenuViewController.swift */; };
+		B36255B722A11A9500C62946 /* SecurityMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B36255B522A11A9500C62946 /* SecurityMenu.storyboard */; };
 		B36EFD362298617C002753B2 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36EFD352298617C002753B2 /* UIButton.swift */; };
 		B39BDC4D228F798300F3FB55 /* BuildConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39BDC4C228F798300F3FB55 /* BuildConfig.swift */; };
 		B3A3EF8622936BFE00008A4E /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A3EF8522936BFE00008A4E /* Reachability.swift */; };
@@ -116,6 +118,7 @@
 		B3B46AB0228F0F7D00A68EDD /* AccountDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B46A79228F0F7C00A68EDD /* AccountDataCell.swift */; };
 		B3B46AB1228F0F7D00A68EDD /* SeedCheckActiveCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B46A7A228F0F7C00A68EDD /* SeedCheckActiveCellView.swift */; };
 		B3B46AB3228F0F7D00A68EDD /* ConfirmSeedViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B46A7C228F0F7C00A68EDD /* ConfirmSeedViewCell.swift */; };
+		B3B46AB5228F0F7D00A68EDD /* SingleInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B46A7E228F0F7C00A68EDD /* SingleInstance.swift */; };
 		B3B46AB6228F0F7D00A68EDD /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B46A7F228F0F7C00A68EDD /* Storyboards.swift */; };
 		B3B46AB7228F0F7D00A68EDD /* splashLoader.gif in Resources */ = {isa = PBXBuildFile; fileRef = B3B46A80228F0F7C00A68EDD /* splashLoader.gif */; };
 		B3B46ABA228F102800A68EDD /* Dcrlibwallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3B46AB9228F102800A68EDD /* Dcrlibwallet.framework */; };
@@ -156,6 +159,8 @@
 		B36EFD352298617C002753B2 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		B377DB0622A5663700BDF56F /* DeleteWalletConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteWalletConfirmationViewController.swift; sourceTree = "<group>"; };
 		B3967B3C22A75BD400E14432 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		B36255B422A11A9500C62946 /* SecurityMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityMenuViewController.swift; sourceTree = "<group>"; };
+		B36255B522A11A9500C62946 /* SecurityMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SecurityMenu.storyboard; sourceTree = "<group>"; };
 		B36EFD352298617C002753B2 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		B39BDC4C228F798300F3FB55 /* BuildConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildConfig.swift; sourceTree = "<group>"; };
 		B3A3EF8522936BFE00008A4E /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
@@ -260,6 +265,7 @@
 		B3B46A79228F0F7C00A68EDD /* AccountDataCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountDataCell.swift; sourceTree = "<group>"; };
 		B3B46A7A228F0F7C00A68EDD /* SeedCheckActiveCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeedCheckActiveCellView.swift; sourceTree = "<group>"; };
 		B3B46A7C228F0F7C00A68EDD /* ConfirmSeedViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmSeedViewCell.swift; sourceTree = "<group>"; };
+		B3B46A7E228F0F7C00A68EDD /* SingleInstance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleInstance.swift; sourceTree = "<group>"; };
 		B3B46A7F228F0F7C00A68EDD /* Storyboards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
 		B3B46A80228F0F7C00A68EDD /* splashLoader.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = splashLoader.gif; sourceTree = "<group>"; };
 		B3B46AB9228F102800A68EDD /* Dcrlibwallet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dcrlibwallet.framework; path = libs/Dcrlibwallet.framework; sourceTree = "<group>"; };
@@ -333,6 +339,8 @@
 			children = (
 				DDCF259D22B8A382005FCBB9 /* SecurityMenu.storyboard */,
 				B36255B422A11A9500C62946 /* SecurityMenuViewController.swift */,
+				B36255B422A11A9500C62946 /* SecurityMenuViewController.swift */,
+				B36255B522A11A9500C62946 /* SecurityMenu.storyboard */,
 			);
 			path = SecurityMenu;
 			sourceTree = "<group>";
@@ -403,6 +411,7 @@
 				B3B46A50228F0F7B00A68EDD /* view_controller */,
 				B3B46A48228F0F7B00A68EDD /* view_util */,
 				B3A3EF8922937B7500008A4E /* Utils */,
+				B3B46A7E228F0F7C00A68EDD /* SingleInstance.swift */,
 				B3B46A80228F0F7C00A68EDD /* splashLoader.gif */,
 				B3B46A4E228F0F7B00A68EDD /* splashLogo.gif */,
 				B3B46A7F228F0F7C00A68EDD /* Storyboards.swift */,
@@ -794,6 +803,7 @@
 				B3B46A40228F0F6700A68EDD /* bg-button.png in Resources */,
 				B3B46A3F228F0F6700A68EDD /* bg-button@3x.png in Resources */,
 				B3B46A01228F0F2700A68EDD /* SourceSansPro-BlackItalic.ttf in Resources */,
+				B36255B722A11A9500C62946 /* SecurityMenu.storyboard in Resources */,
 				B3B46A06228F0F2700A68EDD /* SourceSansPro-Light.ttf in Resources */,
 				B3B46A04228F0F2700A68EDD /* SourceSansPro-Bold.ttf in Resources */,
 				DDCF25A522B8A43F005FCBB9 /* TransactiontInputDetails.xib in Resources */,
@@ -955,7 +965,6 @@
 				B3A3EF88229375D100008A4E /* Date.swift in Sources */,
 				B3B46A21228F0F2700A68EDD /* SecurityBaseViewController.swift in Sources */,
 				B3A3EF922295956300008A4E /* SendViewController.swift in Sources */,
-				B3B46AB4228F0F7D00A68EDD /* SecurityMenuViewController.swift in Sources */,
 				B3B46A9C228F0F7D00A68EDD /* ServerSetTableViewController.swift in Sources */,
 				B3B46AAF228F0F7D00A68EDD /* SeedConfirmTableViewCell.swift in Sources */,
 				B3B46A8C228F0F7D00A68EDD /* Utils.swift in Sources */,
