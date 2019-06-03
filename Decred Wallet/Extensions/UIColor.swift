@@ -21,6 +21,7 @@ extension UIColor {
         static let lightGray = UIColor.init(hex: "#DEE1E3")
         static let lighterGray = UIColor.init(hex: "#C4CBD2")
         static let offWhite = UIColor(hex:"#F3F5F6")
+        static let lightOffWhite = UIColor(hex: "#F9FBFA")
         static let yellowWarning = UIColor.init(hex: "#FFC84E")
         static let thinGray = UIColor.init(hex: "#a4abb1")
         static let darkGray = UIColor.init(hex: "#4e5f70")
