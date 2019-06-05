@@ -85,32 +85,17 @@ class Syncer: NSObject, AppLifeCycleDelegate {
     }
     
     func restartSync() {
-        self.resetSyncData()
-        do {
-            let userSetSPVPeerIPs = Settings.readOptionalValue(for: Settings.Keys.SPVPeerIP) ?? ""
-            try AppDelegate.walletLoader.wallet?.restartSpvSync(userSetSPVPeerIPs)
-            
-            self.forEachSyncListener({ syncListener in syncListener.onStarted(true) })
-        } catch (let syncError) {
-            AppDelegate.shared.showOkAlert(message: syncError.localizedDescription, title: LocalizedStrings.syncError)
-        }
-    }
-    
-    func restartSyncIfItStalls() {
-        // Cancel any previously set sync-restart timer.
-        self.stalledSyncTracker?.invalidate()
-        
-        // Setup new timer to restart sync in 30 seconds.
-        // This timer would/should be canceled/invalidated if a sync update is received before the set interval (30 seconds).
-        DispatchQueue.main.async {
-            self.stalledSyncTracker = Timer.scheduledTimer(withTimeInterval: 30, repeats: false) {_ in
-                if self.syncCompletedCanceledOrErrored {
-                    // Sync not in progress, no need to restart.
-                    return
-                }
-                self.restartSync()
-                self.stalledSyncTracker = nil
-            }
+        if self.syncCompletedCanceledOrErrored {
+            // sync not in progress, restart now
+            self.currentSyncOp = nil
+            self.currentSyncOpProgress = nil
+            self.beginSync()
+        } else {
+            self.currentSyncOp = nil
+            self.currentSyncOpProgress = nil
+            self.shouldRestartSync = true
+            // Cancel ongoing sync without losing peers as we intend to restart the sync.
+            AppDelegate.walletLoader.wallet?.cancelSync(false)
         }
     }
     
