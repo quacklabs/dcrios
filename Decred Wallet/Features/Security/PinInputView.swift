@@ -15,8 +15,6 @@ class PinInputView: UIView {
     
     var maxNumberOfDigits: Int = Int(LONG_MAX)
     
-    var maxNumberOfDigits: Int = Int(LONG_MAX)
-    
     var pin: String = "" {
         didSet {
             self.subviews.forEach{ $0.removeFromSuperview() }
@@ -57,8 +55,8 @@ class PinInputView: UIView {
     }
     
     func drawCells(in frame: CGRect) {
-        if (pin.count > PinInputView.maxNumberOfPinCircles) {
-            self.drawPinLabel(frame: frame)
+        if self.totalWidthRequiredToDisplayAllPinCircles > frame.width {
+            self.drawPinLabel(in: frame)
         } else {
             self.drawPinCircles(in: frame)
         }
