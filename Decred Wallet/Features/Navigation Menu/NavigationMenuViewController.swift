@@ -223,11 +223,12 @@ extension NavigationMenuViewController: SyncProgressListenerProtocol {
         if progressReport.generalSyncProgress == nil {
             // generalSyncProgress is nil during rescan.
             self.refreshBestBlockAgeTimer?.invalidate()
-            self.bestBlockLabel.text = String(format: LocalizedStrings.rescanProgress, progressReport.rescanProgress, progressReport.timeRemaining)
+            self.bestBlockLabel.text = "\(progressReport.rescanProgress)% completed, \(progressReport.timeRemaining) left."
             return
         }
+        
         self.handleGeneralProgressReport(progressReport.generalSyncProgress!)
-        self.bestBlockLabel.text = String(format: LocalizedStrings.syncTotalProgress, progressReport.generalSyncProgress!.totalSyncProgress, progressReport.generalSyncProgress!.totalTimeRemaining)
+        self.bestBlockLabel.text = "\(progressReport.generalSyncProgress!.totalSyncProgress)% completed, \(progressReport.generalSyncProgress!.totalTimeRemaining) left."
     }
     
     func handleGeneralProgressReport(_ generalProgress: DcrlibwalletGeneralSyncProgress) {
