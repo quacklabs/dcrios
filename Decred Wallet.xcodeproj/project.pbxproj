@@ -149,6 +149,7 @@
 		DDCF25A922B8A488005FCBB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDCF25A822B8A487005FCBB9 /* Main.storyboard */; };
 		DDD65AD722A935460027CDA8 /* LicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD65AD622A935460027CDA8 /* LicenseViewController.swift */; };
 		DDAD5025229F718B00EDF91B /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDAD5024229F718B00EDF91B /* Settings.storyboard */; };
+		DDD65AD722A935460027CDA8 /* LicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD65AD622A935460027CDA8 /* LicenseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -304,6 +305,7 @@
 		DDD65AD622A935460027CDA8 /* LicenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseViewController.swift; sourceTree = "<group>"; };
 		DDFB922722C8FF2D00F46FBE /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		DDAD5024229F718B00EDF91B /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		DDD65AD622A935460027CDA8 /* LicenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseViewController.swift; sourceTree = "<group>"; };
 		F985372327D0001C8FDF95F1 /* Pods-Decred Wallet.mainnet debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decred Wallet.mainnet debug.xcconfig"; path = "Target Support Files/Pods-Decred Wallet/Pods-Decred Wallet.mainnet debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -721,6 +723,7 @@
 				DDCF25A022B8A3D4005FCBB9 /* Settings.storyboard */,
 				DDD65AD622A935460027CDA8 /* LicenseViewController.swift */,
 				DDAD5024229F718B00EDF91B /* Settings.storyboard */,
+				DDD65AD622A935460027CDA8 /* LicenseViewController.swift */,
 				B3A3EF8A22937B8800008A4E /* Settings.swift */,
 				B3B46A61228F0F7B00A68EDD /* SettingsController.swift */,
 				B3B46A6F228F0F7B00A68EDD /* CurrencyConversionOptionsViewController.swift */,
@@ -936,6 +939,7 @@
 				B3B46A99228F0F7D00A68EDD /* CertificateViewController.swift in Sources */,
 				DDD65AD722A935460027CDA8 /* LicenseViewController.swift in Sources */,
 				B3B46A99228F0F7D00A68EDD /* CertificateViewController.swift in Sources */,
+				DDD65AD722A935460027CDA8 /* LicenseViewController.swift in Sources */,
 				B3B46A9E228F0F7D00A68EDD /* ReceiveViewController.swift in Sources */,
 				B39BDC4D228F798300F3FB55 /* BuildConfig.swift in Sources */,
 				B3B46A9F228F0F7D00A68EDD /* WalletLogViewController.swift in Sources */,
@@ -1110,7 +1114,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconTestnet;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UX9L95U548;
+				DEVELOPMENT_TEAM = LYZ95J7356;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1193,7 +1197,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconTestnet;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UX9L95U548;
+				DEVELOPMENT_TEAM = LYZ95J7356;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1337,7 +1341,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UX9L95U548;
+				DEVELOPMENT_TEAM = LYZ95J7356;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1363,7 +1367,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UX9L95U548;
+				DEVELOPMENT_TEAM = LYZ95J7356;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
