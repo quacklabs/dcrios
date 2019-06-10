@@ -85,30 +85,11 @@ class OverviewViewController: UIViewController {
     }
     
     func loadRecentActivity() {
-        DispatchQueue.main.async {
-            do {
-                var getTransactionsError: NSError?
-                let maxDisplayItems = round(self.recentActivityTableView.frame.size.height / TransactionTableViewCell.height())
-                let transactionsJson = AppDelegate.walletLoader.wallet?.getTransactions(Int32(maxDisplayItems), error: &getTransactionsError)
-                if getTransactionsError != nil {
-                    throw getTransactionsError!
-                }
-                
-                self.recentTransactions = try JSONDecoder().decode([Transaction].self, from: transactionsJson!.utf8Bits)
-                
-                if self.recentTransactions.count > 0 {
-                    self.recentActivityTableView.backgroundView = nil
-                    self.recentActivityTableView.separatorStyle = .singleLine
-                    self.recentActivityTableView.reloadData()
-                } else {
-                    let label = UILabel(frame: CGRect(x: 0, y: 0, width: self.recentActivityTableView.bounds.size.width, height: self.recentActivityTableView.bounds.size.height))
-                    label.text = "No Transactions"
-                    label.textAlignment = .center
-                    self.recentActivityTableView.backgroundView = label
-                    self.recentActivityTableView.separatorStyle = .none
-                }
-            } catch let Error {
-                print(Error)
+        let maxDisplayItems = round(self.recentActivityTableView.frame.size.height / TransactionTableViewCell.height())
+        AppDelegate.walletLoader.wallet?.transactionHistory(count: Int32(maxDisplayItems)) { transactions in
+            if transactions == nil || transactions!.count == 0 {
+                self.showNoTransactions()
+                return
             }
             
             self.recentTransactions = transactions!
