@@ -79,7 +79,6 @@ class ReceiveViewController: UIViewController,UIDocumentInteractionControllerDel
             self.present(alertController, animated: true, completion: nil)
         }
     }
-    
     @objc func showMenu(sender: Any) {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
