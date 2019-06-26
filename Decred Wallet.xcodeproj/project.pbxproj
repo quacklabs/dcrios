@@ -26,7 +26,6 @@
 		B3A3EF8B22937B8800008A4E /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A3EF8A22937B8800008A4E /* Settings.swift */; };
 		B3A3EF8F2293A8E400008A4E /* NewWalletDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A3EF8E2293A8E400008A4E /* NewWalletDialog.swift */; };
 		B3A3EF922295956300008A4E /* SendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A3EF912295956300008A4E /* SendViewController.swift */; };
-		B3A3EF942295970700008A4E /* Send.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3A3EF932295970700008A4E /* Send.storyboard */; };
 		B3B46993228F0C2E00A68EDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B46992228F0C2E00A68EDD /* AppDelegate.swift */; };
 		B3B4699A228F0C2E00A68EDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3B46999228F0C2E00A68EDD /* Assets.xcassets */; };
 		B3B4699D228F0C2E00A68EDD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3B4699B228F0C2E00A68EDD /* LaunchScreen.storyboard */; };
@@ -121,7 +120,6 @@
 		B3B46AB0228F0F7D00A68EDD /* AccountDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B46A79228F0F7C00A68EDD /* AccountDataCell.swift */; };
 		B3B46AB1228F0F7D00A68EDD /* SeedCheckActiveCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B46A7A228F0F7C00A68EDD /* SeedCheckActiveCellView.swift */; };
 		B3B46AB3228F0F7D00A68EDD /* ConfirmSeedViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B46A7C228F0F7C00A68EDD /* ConfirmSeedViewCell.swift */; };
-		B3B46AB5228F0F7D00A68EDD /* SingleInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B46A7E228F0F7C00A68EDD /* SingleInstance.swift */; };
 		B3B46AB6228F0F7D00A68EDD /* Storyboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B46A7F228F0F7C00A68EDD /* Storyboards.swift */; };
 		B3B46AB7228F0F7D00A68EDD /* splashLoader.gif in Resources */ = {isa = PBXBuildFile; fileRef = B3B46A80228F0F7C00A68EDD /* splashLoader.gif */; };
 		B3B46ABA228F102800A68EDD /* Dcrlibwallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3B46AB9228F102800A68EDD /* Dcrlibwallet.framework */; };
@@ -175,7 +173,6 @@
 		B3A3EF8A22937B8800008A4E /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Settings.swift; path = ../../Utils/Settings.swift; sourceTree = "<group>"; };
 		B3A3EF8E2293A8E400008A4E /* NewWalletDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWalletDialog.swift; sourceTree = "<group>"; };
 		B3A3EF912295956300008A4E /* SendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendViewController.swift; sourceTree = "<group>"; };
-		B3A3EF932295970700008A4E /* Send.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Send.storyboard; sourceTree = "<group>"; };
 		B3B4698F228F0C2D00A68EDD /* Decred Wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Decred Wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3B46992228F0C2E00A68EDD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3B46999228F0C2E00A68EDD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -272,7 +269,6 @@
 		B3B46A79228F0F7C00A68EDD /* AccountDataCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountDataCell.swift; sourceTree = "<group>"; };
 		B3B46A7A228F0F7C00A68EDD /* SeedCheckActiveCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeedCheckActiveCellView.swift; sourceTree = "<group>"; };
 		B3B46A7C228F0F7C00A68EDD /* ConfirmSeedViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmSeedViewCell.swift; sourceTree = "<group>"; };
-		B3B46A7E228F0F7C00A68EDD /* SingleInstance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleInstance.swift; sourceTree = "<group>"; };
 		B3B46A7F228F0F7C00A68EDD /* Storyboards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboards.swift; sourceTree = "<group>"; };
 		B3B46A80228F0F7C00A68EDD /* splashLoader.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = splashLoader.gif; sourceTree = "<group>"; };
 		B3B46AB9228F102800A68EDD /* Dcrlibwallet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dcrlibwallet.framework; path = libs/Dcrlibwallet.framework; sourceTree = "<group>"; };
@@ -287,6 +283,8 @@
 		DD41737E22B1B32500580935 /* ru-RU */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ru-RU"; path = "ru-RU.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		DD452ED922CA93CB00A12378 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DD443DD422C768A000EEAB95 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DD41737C22B1B31E00580935 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DD41737E22B1B32500580935 /* ru-RU */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "ru-RU"; path = "ru-RU.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		DD4948EB22C0E400006A35F8 /* LocalizedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
 		DD75148922BA67B10070E4F6 /* TransactionHistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransactionHistoryViewController.xib; sourceTree = "<group>"; };
 		DD8F9D3B22BE7A5600FF8594 /* Security.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Security.storyboard; sourceTree = "<group>"; };
@@ -348,7 +346,6 @@
 				DDCF259D22B8A382005FCBB9 /* SecurityMenu.storyboard */,
 				B36255B422A11A9500C62946 /* SecurityMenuViewController.swift */,
 				B36255B422A11A9500C62946 /* SecurityMenuViewController.swift */,
-				B36255B522A11A9500C62946 /* SecurityMenu.storyboard */,
 			);
 			path = SecurityMenu;
 			sourceTree = "<group>";
@@ -386,6 +383,7 @@
 		B3B46986228F0C2D00A68EDD = {
 			isa = PBXGroup;
 			children = (
+				DD41737D22B1B31E00580935 /* Localizable.strings */,
 				B3B46991228F0C2E00A68EDD /* Decred Wallet */,
 				B3B46990228F0C2D00A68EDD /* Products */,
 				8F7CDB697B0BC7D598AC1F98 /* Pods */,
@@ -419,7 +417,6 @@
 				B3B46A50228F0F7B00A68EDD /* view_controller */,
 				B3B46A48228F0F7B00A68EDD /* view_util */,
 				B3A3EF8922937B7500008A4E /* Utils */,
-				B3B46A7E228F0F7C00A68EDD /* SingleInstance.swift */,
 				B3B46A80228F0F7C00A68EDD /* splashLoader.gif */,
 				B3B46A4E228F0F7B00A68EDD /* splashLogo.gif */,
 				B3B46A7F228F0F7C00A68EDD /* Storyboards.swift */,
@@ -812,7 +809,6 @@
 				B3B46A40228F0F6700A68EDD /* bg-button.png in Resources */,
 				B3B46A3F228F0F6700A68EDD /* bg-button@3x.png in Resources */,
 				B3B46A01228F0F2700A68EDD /* SourceSansPro-BlackItalic.ttf in Resources */,
-				B36255B722A11A9500C62946 /* SecurityMenu.storyboard in Resources */,
 				B3B46A06228F0F2700A68EDD /* SourceSansPro-Light.ttf in Resources */,
 				B3B46A04228F0F2700A68EDD /* SourceSansPro-Bold.ttf in Resources */,
 				DDCF25A522B8A43F005FCBB9 /* TransactiontInputDetails.xib in Resources */,

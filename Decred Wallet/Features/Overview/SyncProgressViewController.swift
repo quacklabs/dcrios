@@ -161,7 +161,7 @@ extension SyncProgressViewController: SyncProgressListenerProtocol {
     
     func onSyncCanceled(_ willRestart: Bool) {
         self.resetSyncViews()
-        self.syncHeaderLabel.text = willRestart ? LocalizedStrings.restartingSynchronization : LocalizedStrings.synchronizationCanceled
+        self.syncHeaderLabel.text = LocalizedStrings.synchronizationCanceled
     }
     
     func onSyncEndedWithError(_ error: String) {

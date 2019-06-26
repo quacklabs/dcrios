@@ -45,7 +45,7 @@ class ReceiveViewController: UIViewController,UIDocumentInteractionControllerDel
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.subheader.text = LocalizedStrings.receiveHeaderInfo
+        self.subheader.text = LocalizedStrings.recieveHeaderInfo
         // TAP Gesture
         self.setupExtraUI()
         self.starttime = Int64(NSDate().timeIntervalSince1970)
@@ -79,6 +79,7 @@ class ReceiveViewController: UIViewController,UIDocumentInteractionControllerDel
             self.present(alertController, animated: true, completion: nil)
         }
     }
+    
     @objc func showMenu(sender: Any) {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         

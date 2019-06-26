@@ -85,11 +85,11 @@ class RequestPinViewController: SecurityBaseViewController {
         }
         else if requestPinConfirmation && pinToConfirm != pinInputView.pin {
             self.pinToConfirm = ""
-            self.headerText.text = "PINs did not match. Try again"
+            self.headerText.text = LocalizedStrings.pinsDidNotMatch
             
             // Reset the input
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                self.headerText.text = "Create \(self.securityFor) PIN"
+                self.headerText.text = String(format: LocalizedStrings.createPIN, self.securityFor)
                 self.pinInputView.clear()
                 self.prgsPinStrength.progress = 0
                 

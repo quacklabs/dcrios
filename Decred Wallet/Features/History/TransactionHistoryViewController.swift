@@ -3,7 +3,7 @@
 //  Decred Wallet
 //
 // Copyright (c) 2018-2019 The Decred developers
-// Use of self source code is governed by an ISC
+// Use of this source code is governed by an ISC
 // license that can be found in the LICENSE file.
 
 import UIKit
@@ -98,7 +98,7 @@ class TransactionHistoryViewController: UIViewController {
     
     func showNoTransactions() {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: self.tableView.bounds.size.width, height: self.tableView.bounds.size.height))
-        label.text = "No Transactions"
+        label.text = LocalizedStrings.noTransactions
         label.textAlignment = .center
         self.tableView.backgroundView = label
         self.tableView.separatorStyle = .none
@@ -124,24 +124,24 @@ class TransactionHistoryViewController: UIViewController {
         case 1:
             // TODO: Remove after next dcrlibwallet update
             self.Filtercontent = self.mainContens.filter{$0.Direction == 0 && $0.Type == GlobalConstants.Strings.REGULAR}
-            self.btnFilter.setTitle("Sent (".appending(String(self.Filtercontent.count)).appending(")"), for: .normal)
+            self.btnFilter.setTitle(LocalizedStrings.sent.appending(" (").appending(String(self.Filtercontent.count)).appending(")"), for: .normal)
             self.tableView.reloadData()
             break
         case 2:
             // TODO: Remove after next dcrlibwallet update
             self.Filtercontent = self.mainContens.filter{$0.Direction == 1 && $0.Type == GlobalConstants.Strings.REGULAR}
-            self.btnFilter.setTitle("Received (".appending(String(self.Filtercontent.count)).appending(")"), for: .normal)
+            self.btnFilter.setTitle(LocalizedStrings.received.appending(" (").appending(String(self.Filtercontent.count)).appending(")"), for: .normal)
             self.tableView.reloadData()
             break
         case 3:
             // TODO: Remove after next dcrlibwallet update
             self.Filtercontent = self.mainContens.filter{$0.Direction == 2 && $0.Type == GlobalConstants.Strings.REGULAR}
-            self.btnFilter.setTitle("Yourself (".appending(String(self.Filtercontent.count)).appending(")"), for: .normal)
+            self.btnFilter.setTitle(LocalizedStrings.yourself.appending(" (").appending(String(self.Filtercontent.count)).appending(")"), for: .normal)
             self.tableView.reloadData()
             break
         case 4:
             self.Filtercontent = self.mainContens.filter{$0.Type == GlobalConstants.Strings.REVOCATION || $0.Type == GlobalConstants.Strings.TICKET_PURCHASE || $0.Type == GlobalConstants.Strings.VOTE}
-            self.btnFilter.setTitle("Staking (".appending(String(self.Filtercontent.count)).appending(")"), for: .normal)
+            self.btnFilter.setTitle(LocalizedStrings.staking.appending(" (").appending(String(self.Filtercontent.count)).appending(")"), for: .normal)
             self.tableView.reloadData()
             break
         case 5:
@@ -151,7 +151,7 @@ class TransactionHistoryViewController: UIViewController {
             break
         default:
             self.Filtercontent = self.mainContens
-            self.btnFilter.setTitle("All (".appending(String(self.Filtercontent.count)).appending(")"), for: .normal)
+            self.btnFilter.setTitle(LocalizedStrings.all.appending(" (").appending(String(self.Filtercontent.count)).appending(")"), for: .normal)
             self.tableView.reloadData()
         }
     }
