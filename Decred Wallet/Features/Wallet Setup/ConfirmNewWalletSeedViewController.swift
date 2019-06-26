@@ -112,10 +112,9 @@ extension ConfirmNewWalletSeedViewController: UITableViewDelegate, UITableViewDa
         cell?.setup(num: indexPath.row, seedWords: seedWordsGroupedByThree[indexPath.row], selectedWord: userSelection)
         
         cell?.onPick = {(index, seedWord) in
-            self.selectedSeedWords[indexPath.row] = index
-            self.enteredWords[indexPath.row] = seedWord
+            self.selectedWords[indexPath.row] = seedWord
             
-            self.btnConfirm.isEnabled = self.enteredWords.reduce(true, { (res, input) -> Bool in
+            self.btnConfirm.isEnabled = self.selectedWords.reduce(true, { (res, input) -> Bool in
                 return res && input != ""
             })
             
@@ -126,37 +125,6 @@ extension ConfirmNewWalletSeedViewController: UITableViewDelegate, UITableViewDa
                 } else {
                     tableView.selectRow(at: nextRowIndex, animated: true, scrollPosition: .bottom)
                 }
-            }
-        }
-        
-        return cell!
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    private func breakdownByThree(row:Int) -> [String]{
-        let seed = seedToVerify?.split{$0 == " "}.map(String.init)
-        
-        var suggestionsWithFake: [String] = ["","",""]
-        let trueSeedIndex = Int.random(in: 0...2)
-        let trueSeed = seed?[row]
-        suggestionsWithFake[trueSeedIndex] = trueSeed ?? "dummy"
-        
-        let fakeWordsArray = allWords.filter({
-            return ($0.lowercased() != trueSeed?.lowercased())
-        })
-        var fakeWordsSet = Array(Set(fakeWordsArray))
-        let fake1 = Int.random(in: 0...(fakeWordsSet.count) - 1)
-        var fakes = [fakeWordsSet.remove(at: fake1)]
-        let fake2 = Int.random(in: 0...(fakeWordsSet.count) - 1)
-        fakes.append(fakeWordsSet.remove(at: fake2))
-        var fakeIndex = 0
-        for i in 0...2 {
-            if i != trueSeedIndex {
-                    suggestionsWithFake[i] = fakes[fakeIndex]
-                    fakeIndex += 1
             }
         }
         
