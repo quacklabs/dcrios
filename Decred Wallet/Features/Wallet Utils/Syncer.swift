@@ -101,12 +101,7 @@ class Syncer: NSObject, AppLifeCycleDelegate {
         // Cancel any previously set sync-restart timer.
         self.stalledSyncTracker?.invalidate()
         
-        if self.syncCompletedCanceledOrErrored {
-            // Sync not in progress, no need to "watch" for stalling.
-            return
-        }
-        
-        // Setup timer to restart sync in 30 seconds.
+        // Setup new timer to restart sync in 30 seconds.
         // This timer would/should be canceled/invalidated if a sync update is received before the set interval (30 seconds).
         DispatchQueue.main.async {
             self.stalledSyncTracker = Timer.scheduledTimer(withTimeInterval: 30, repeats: false) {_ in
@@ -225,7 +220,9 @@ extension Syncer: DcrlibwalletSyncProgressListenerProtocol {
     }
     
     func onHeadersFetchProgress(_ headersFetchProgress: DcrlibwalletHeadersFetchProgressReport?) {
-        self.restartSyncIfItStalls()
+        if !self.syncCompletedCanceledOrErrored {
+            self.restartSyncIfItStalls()
+        }
         
         self.currentSyncOp = .FetchingHeaders
         self.currentSyncOpProgress = headersFetchProgress
@@ -233,7 +230,9 @@ extension Syncer: DcrlibwalletSyncProgressListenerProtocol {
     }
     
     func onAddressDiscoveryProgress(_ addressDiscoveryProgress: DcrlibwalletAddressDiscoveryProgressReport?) {
-        self.restartSyncIfItStalls()
+        if !self.syncCompletedCanceledOrErrored {
+            self.restartSyncIfItStalls()
+        }
         
         self.currentSyncOp = .DiscoveringAddresses
         self.currentSyncOpProgress = addressDiscoveryProgress
@@ -241,12 +240,15 @@ extension Syncer: DcrlibwalletSyncProgressListenerProtocol {
     }
     
     func onHeadersRescanProgress(_ headersRescanProgress: DcrlibwalletHeadersRescanProgressReport?) {
+        // Do not set current sync op for blocks rescan.
+        // Ideally, blocks rescan should notify a different callback than sync - rescan stage.
         if !AppDelegate.walletLoader.wallet!.isScanning() {
-            // Do not set current sync op for blocks rescan.
-            // Ideally, blocks rescan should notify a different callback than sync - rescan stage.
             self.currentSyncOp = .RescanningHeaders
             self.currentSyncOpProgress = headersRescanProgress
-            self.restartSyncIfItStalls()
+            
+            if !self.syncCompletedCanceledOrErrored {
+                self.restartSyncIfItStalls()
+            }
         }
         
         self.forEachSyncListener({ syncListener in syncListener.onHeadersRescanProgress(headersRescanProgress!) })
