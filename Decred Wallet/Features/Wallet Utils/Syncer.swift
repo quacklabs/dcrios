@@ -66,34 +66,33 @@ class Syncer: NSObject, AppLifeCycleDelegate {
         self.stalledSyncTracker = nil
         self.currentSyncOp = nil
         self.currentSyncOpProgress = nil
+    }
+    
+    func beginSync() {
+        // Listen for changes to app state, specifically when the app becomes active after being suspended previously.
+        AppDelegate.shared.registerLifeCylceDelegate(self, for: "\(self)")
         
-        let isRestarting = self.shouldRestartSync
-        self.shouldRestartSync = false
+        self.resetSyncData()
         
         do {
             let userSetSPVPeerIPs = Settings.readOptionalValue(for: Settings.Keys.SPVPeerIP) ?? ""
             try AppDelegate.walletLoader.wallet?.spvSync(userSetSPVPeerIPs)
-            
-            self.forEachSyncListener({ syncListener in syncListener.onStarted(isRestarting) })
-            
-            // Listen for changes to app state, specifically when the app becomes active after being suspended previously.
-            AppDelegate.shared.registerLifeCylceDelegate(self, for: "\(self)")
+          
+            self.forEachSyncListener({ syncListener in syncListener.onStarted(false) })
         } catch (let syncError) {
             AppDelegate.shared.showOkAlert(message: syncError.localizedDescription, title: LocalizedStrings.syncError)
         }
     }
     
     func restartSync() {
-        self.shouldRestartSync = true
-        if self.syncCompletedCanceledOrErrored {
-            // sync not in progress, restart now
-            self.currentSyncOp = nil
-            self.currentSyncOpProgress = nil
-            self.beginSync()
-        } else {
-            self.currentSyncOp = nil
-            self.currentSyncOpProgress = nil
-            AppDelegate.walletLoader.wallet?.cancelSync()
+        self.resetSyncData()
+        do {
+            let userSetSPVPeerIPs = Settings.readOptionalValue(for: Settings.Keys.SPVPeerIP) ?? ""
+            try AppDelegate.walletLoader.wallet?.restartSpvSync(userSetSPVPeerIPs)
+            
+            self.forEachSyncListener({ syncListener in syncListener.onStarted(true) })
+        } catch (let syncError) {
+            AppDelegate.shared.showOkAlert(message: syncError.localizedDescription, title: LocalizedStrings.syncError)
         }
     }
     
@@ -293,12 +292,6 @@ extension Syncer: DcrlibwalletSyncProgressListenerProtocol {
         self.currentSyncOp = .Errored
         self.currentSyncOpProgress = err!.localizedDescription
         self.forEachSyncListener({ syncListener in syncListener.onSyncEndedWithError(err!.localizedDescription) })
-        
-        if self.shouldRestartSync {
-            DispatchQueue.main.async {
-                self.beginSync()
-            }
-        }
     }
     
     func debug(_ debugInfo: DcrlibwalletDebugInfo?) {
