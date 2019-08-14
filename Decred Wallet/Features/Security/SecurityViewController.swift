@@ -70,22 +70,27 @@ class SecurityViewController: SecurityBaseViewController {
     }
     
     func activatePasswordTab() {
-        self.tabController?.selectedIndex = 0
-        // activate password button
-        self.btnPassword.setTitleColor(UIColor.appColors.darkGray, for: .normal)
-        self.btnPassword.addBorder(atPosition: .bottom)
-        // deactivate pin button
-        self.btnPin.setTitleColor(UIColor.appColors.thinGray, for: .normal)
-        self.btnPin.removeBorders(atPositions: .bottom)
+        tabController?.selectedIndex = 0
+        btnPassword.backgroundColor = #colorLiteral(red: 0.9529411765, green: 0.9607843137, blue: 0.9647058824, alpha: 1)
+        btnPin.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        
+        // Add border around password tab and remove border around PIN tab
+        btnPassword.layer.borderColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
+        btnPassword.layer.borderWidth = CGFloat(1.8)
+        btnPin.layer.borderColor = #colorLiteral(red: 0.9529411765, green: 0.9607843137, blue: 0.9647058824, alpha: 1)
+        btnPin.layer.borderWidth = 0
+        
     }
     
     func activatePinTab() {
-        self.tabController?.selectedIndex = 1
-        // activate pin button
-        self.btnPin.setTitleColor(UIColor.appColors.darkGray, for: .normal)
-        self.btnPin.addBorder(atPosition: .bottom)
-        // deactivate password button
-        self.btnPassword.setTitleColor(UIColor.appColors.thinGray, for: .normal)
-        self.btnPassword.removeBorders(atPositions: .bottom)
+        tabController?.selectedIndex = 1
+        btnPin.backgroundColor = #colorLiteral(red: 0.9529411765, green: 0.9607843137, blue: 0.9647058824, alpha: 1)
+        btnPassword.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        
+        // Add border around PIN tab and remove border around Password tab
+        btnPin.layer.borderColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
+        btnPin.layer.borderWidth = CGFloat(1.8)
+        btnPassword.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        btnPassword.layer.borderWidth = 0
     }
 }
