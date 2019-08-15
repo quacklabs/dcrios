@@ -11,9 +11,6 @@ import UIKit
 
 class WalletSetupViewController: WalletSetupBaseViewController {
     @IBOutlet weak var infoText: UILabel!
-//    @IBOutlet weak var restoreWallet: UILabel!
-//    @IBOutlet weak var createWallet: UILabel!
-//    @IBOutlet weak var build: UILabel!
     
     @IBOutlet weak var createWalletBtn: UIButton!
     @IBOutlet weak var restoreWalletBtn: UIButton!
@@ -38,10 +35,6 @@ class WalletSetupViewController: WalletSetupBaseViewController {
         createWalletBtn.titleLabel?.text = LocalizedStrings.createNewWallet
         restoreWalletBtn.titleLabel?.text = LocalizedStrings.restoreExistingWallet
         
-        let dateformater = DateFormatter()
-        dateformater.dateFormat = "yyyy-MM-dd"
-//        let netType = BuildConfig.IsTestNet ? "testnet" : BuildConfig.NetType
-
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
