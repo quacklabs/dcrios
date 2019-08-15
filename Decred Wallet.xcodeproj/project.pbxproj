@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2506406E2304A2DE0028A9AC /* Dcrlibwallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2506406D2304A2DE0028A9AC /* Dcrlibwallet.framework */; };
+		25AEB1C9230565A000F68DBA /* FloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AEB1C8230565A000F68DBA /* FloatingLabelTextField.swift */; };
 		2A11C88FC2C6C613F50568BB /* Pods_Decred_Wallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9714AB438E597D403032748 /* Pods_Decred_Wallet.framework */; };
 		AD07C29422B927FA008F49F9 /* Segues.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD07C29322B927FA008F49F9 /* Segues.swift */; };
 		B36255B622A11A9500C62946 /* SecurityMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36255B422A11A9500C62946 /* SecurityMenuViewController.swift */; };
@@ -145,6 +146,7 @@
 /* Begin PBXFileReference section */
 		23F5A25CDDC0ADF47F98ED95 /* Pods-Decred Wallet.mainnet release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decred Wallet.mainnet release.xcconfig"; path = "Target Support Files/Pods-Decred Wallet/Pods-Decred Wallet.mainnet release.xcconfig"; sourceTree = "<group>"; };
 		2506406D2304A2DE0028A9AC /* Dcrlibwallet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dcrlibwallet.framework; path = libs/Dcrlibwallet.framework; sourceTree = "<group>"; };
+		25AEB1C8230565A000F68DBA /* FloatingLabelTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingLabelTextField.swift; sourceTree = "<group>"; };
 		6A0625AB1C6ACD2EC77F544F /* Pods-Decred Wallet.mainnet debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decred Wallet.mainnet debug.xcconfig"; path = "Target Support Files/Pods-Decred Wallet/Pods-Decred Wallet.mainnet debug.xcconfig"; sourceTree = "<group>"; };
 		A9714AB438E597D403032748 /* Pods_Decred_Wallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Decred_Wallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD07C29322B927FA008F49F9 /* Segues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segues.swift; sourceTree = "<group>"; };
@@ -439,6 +441,7 @@
 			children = (
 				B3B469AD228F0F2600A68EDD /* Button.swift */,
 				B3635B81229FE5870052EB4D /* QRImageScanner.swift */,
+				25AEB1C8230565A000F68DBA /* FloatingLabelTextField.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -900,6 +903,7 @@
 				B3D21C9F2296E4F000609F23 /* ExchangeRates.swift in Sources */,
 				B3B46A28228F0F2700A68EDD /* RecoverExistingWalletViewController.swift in Sources */,
 				B3B46A86228F0F7D00A68EDD /* DropMenuButton.swift in Sources */,
+				25AEB1C9230565A000F68DBA /* FloatingLabelTextField.swift in Sources */,
 				B3B46AC9228F120700A68EDD /* TransactiontInputDetails.swift in Sources */,
 				DD3DF86622C3F0BD00E168AB /* UILabel.swift in Sources */,
 				B3B46A99228F0F7D00A68EDD /* CertificateViewController.swift in Sources */,
