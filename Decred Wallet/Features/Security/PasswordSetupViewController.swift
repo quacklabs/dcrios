@@ -9,17 +9,28 @@
 import UIKit
 
 class PasswordSetupViewController: SecurityBaseViewController, UITextFieldDelegate {
-    @IBOutlet weak var tfPassword: UITextField!
-    @IBOutlet weak var tfConfirmPassword: UITextField!
-    @IBOutlet weak var lbMatchIndicator: UILabel!
+    // Input fields
+    @IBOutlet weak var tfPassword: FloatingLabelTextField!
+    @IBOutlet weak var tfConfirmPassword: FloatingLabelTextField!
+    
     @IBOutlet weak var pbPasswordStrength: UIProgressView!
     
     @IBOutlet weak var passwordCount: UILabel!
-    @IBOutlet weak var passwordLabel: UILabel!
+    @IBOutlet weak var confirmCount: UILabel!
+    
+    // Buttons
+    @IBOutlet weak var cancelBtn: UIButton!
+    @IBOutlet weak var createBtn: UIButton!
+    
+    // Error Labels
+    @IBOutlet weak var passwordErr: UILabel!
+    @IBOutlet weak var confirmErr: UILabel!
     
     
     var securityFor: String = "" // expects "Spending", "Startup" or other security section
     var onUserEnteredPassword: ((_ password: String) -> Void)?
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,32 +50,49 @@ class PasswordSetupViewController: SecurityBaseViewController, UITextFieldDelega
         self.tfPassword.delegate = self
         self.tfConfirmPassword.delegate = self
         
-//        self.headerText.text = String(format: LocalizedStrings.createPassword, self.securityFor)
-        self.lbMatchIndicator.text = " " // use empty space so label height isn't reduced
     }
     
     @objc func passwordTextFieldChange() {
+        
         let passwordStrength = PinPasswordStrength.percentageStrength(of: self.tfPassword.text ?? "")
         pbPasswordStrength.progress = passwordStrength.strength
         pbPasswordStrength.progressTintColor = passwordStrength.color
         
+        if self.tfPassword.text == ""{
+            self.passwordCount.text = "\(0)"
+        }else{
+            self.passwordCount.text = "\(self.tfPassword.text!.count)"
+        }
+        
         self.checkPasswordMatch()
     }
     
+
     @objc func confirmPasswordTextFieldChange() {
         self.checkPasswordMatch()
     }
     
     func checkPasswordMatch() {
+        
+        createBtn.setBackgroundColor(UIColor.appColors.lightGray, for: .normal)
+        
         if self.tfConfirmPassword.text == "" {
-            self.lbMatchIndicator.text = " " // use empty space so label height isn't reduced
+            self.confirmErr.textColor = UIColor.appColors.orangeWarning
+            self.confirmErr.text = LocalizedStrings.passwordsDoNotMatch
+            self.createBtn.isEnabled = false
+            
         } else if self.tfPassword.text == self.tfConfirmPassword.text {
-            self.lbMatchIndicator.textColor = UIColor.appColors.green
-            self.lbMatchIndicator.text = LocalizedStrings.passwordMatch
+            self.confirmErr.textColor = UIColor.appColors.green
+            self.confirmErr.text = LocalizedStrings.passwordMatch
+            self.createBtn.isEnabled = true
+            createBtn.setBackgroundColor(UIColor.appColors.decredBlue, for: .normal)
         } else {
-            self.lbMatchIndicator.textColor = UIColor.appColors.yellowWarning
-            self.lbMatchIndicator.text = LocalizedStrings.passwordsDoNotMatch
+            self.confirmErr.textColor = UIColor.appColors.orangeWarning
+            self.confirmErr.text = LocalizedStrings.passwordsDoNotMatch
+            self.createBtn.isEnabled = false
         }
+        
+        self.confirmCount.text = (self.tfConfirmPassword.text != "") ? "\(self.tfConfirmPassword.text!.count)" : "0"
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -76,9 +104,14 @@ class PasswordSetupViewController: SecurityBaseViewController, UITextFieldDelega
         return self.validatePasswordsAndProceed()
     }
     
-    @IBAction func onOkTapped(_ sender: Any) {
+    @IBAction func cancelTapped(_sender: UIButton){
+        self.dismiss(animated: true)
+    }
+    
+    @IBAction func createTapped(_ sender: UIButton){
         _ = self.validatePasswordsAndProceed()
     }
+    
     
     func validatePasswordsAndProceed() -> Bool {
         let password = self.tfPassword.text ?? ""
@@ -94,19 +127,24 @@ class PasswordSetupViewController: SecurityBaseViewController, UITextFieldDelega
         
         // only quit VC if not part of the SecurityVC tabs
         if self.tabBarController == nil {
-            if self.isModal {
-                self.dismiss(animated: true, completion: nil)
-            } else {
-                self.navigationController?.popViewController(animated: true)
-            }
+            self.close()
         }
         
         self.onUserEnteredPassword?(self.tfPassword.text!)
         return true
     }
     
+    private func close(){
+        if self.isModal {
+            self.dismiss(animated: true, completion: nil)
+        } else {
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
     private func setupInterface(){
         tfPassword.layer.cornerRadius = 7
         tfConfirmPassword.layer.cornerRadius = 7
+        createBtn.layer.cornerRadius = 7
     }
 }

@@ -49,8 +49,6 @@ class SecurityViewController: SecurityBaseViewController {
     }
     
     override func viewDidLoad() {
-//        self.btnPassword.setBackgroundColor(UIColor.appColors.transparentThinGray, for: .highlighted)
-//        self.btnPin.setBackgroundColor(UIColor.appColors.transparentThinGray, for: .highlighted)
         
         // delay before activating initial tab to allow borders show properly
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
@@ -65,6 +63,7 @@ class SecurityViewController: SecurityBaseViewController {
     @IBAction func onPasswordTab(_ sender: Any) {
         guard self.tabController?.selectedIndex != 0 else { return }
         self.activatePasswordTab()
+        
     }
     
     @IBAction func onPinTab(_ sender: Any) {
@@ -80,6 +79,9 @@ class SecurityViewController: SecurityBaseViewController {
         btnPassword.setTitleColor(UIColor.appColors.decredBlue, for: .normal)
         btnPin.removeBorders(atPositions: .bottom)
         btnPin.setTitleColor(UIColor.appColors.textDark, for: .normal)
+        
+        self.currentTitle.text = "Create a \(self.securityFor) password";
+        
     }
     
     func activatePinTab() {
@@ -90,5 +92,7 @@ class SecurityViewController: SecurityBaseViewController {
         btnPin.setTitleColor(UIColor.appColors.decredBlue, for: .normal)
         btnPassword.removeBorders(atPositions: .bottom)
         btnPassword.setTitleColor(UIColor.appColors.textDark, for: .normal)
+        
+        self.currentTitle.text = "Create a \(self.securityFor) PIN";
     }
 }

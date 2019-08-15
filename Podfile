@@ -12,4 +12,6 @@ target 'Decred Wallet' do
   pod 'Fabric'
   pod 'Crashlytics'
 
+  # Signals Library for reactiveness
+  pod 'Signals', '~> 6.0'
 end
