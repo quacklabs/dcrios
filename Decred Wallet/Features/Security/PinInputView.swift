@@ -12,10 +12,10 @@ class PinInputView: UIView {
     static let spacingBetweenPinCircles: CGFloat = 10.0
     static let circleBorderSizeFactor: CGFloat = 0.15
     static let defaultCircleDiameter: CGFloat = 30.0
+    static let maxNumberOfPinCircles: Int = 6
     
     var maxNumberOfDigits: Int = Int(LONG_MAX)
     
-    var maxNumberOfDigits: Int = Int(LONG_MAX)
     
     var pin: String = "" {
         didSet {
