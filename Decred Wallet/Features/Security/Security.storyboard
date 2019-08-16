@@ -10,9 +10,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="SourceSansPro-Bold.ttf">
-            <string>SourceSansPro-Bold</string>
-        </array>
         <array key="SourceSansPro-Regular.ttf">
             <string>SourceSansPro-Regular</string>
         </array>
@@ -162,10 +159,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <progressView contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mgJ-Mp-brz">
-                                <rect key="frame" x="214" y="146" width="176" height="2"/>
+                                <rect key="frame" x="214" y="146" width="176" height="8"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="2" id="KeJ-Yu-Szo"/>
+                                    <constraint firstAttribute="height" constant="8" id="KeJ-Yu-Szo"/>
                                     <constraint firstAttribute="width" constant="176" id="bcT-hA-n8C"/>
                                 </constraints>
                                 <color key="progressTintColor" red="0.2274509804" green="0.84313725490000002" blue="0.64313725489999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -215,9 +212,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zxu-b3-Pxp">
-                                <rect key="frame" x="40" y="232" width="140" height="12"/>
+                                <rect key="frame" x="40" y="232" width="175" height="12"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="140" id="4EK-eq-gXB"/>
+                                    <constraint firstAttribute="width" constant="175" id="4EK-eq-gXB"/>
                                     <constraint firstAttribute="height" constant="12" id="FGe-Qa-vbG"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="12"/>
@@ -279,7 +276,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BTj-yk-gbD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6270" y="-785"/>
+            <point key="canvasLocation" x="6269.5652173913049" y="-785.15625"/>
         </scene>
         <!--Pin Tab-->
         <scene sceneID="y31-sl-O1Z">
@@ -289,344 +286,140 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="719"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Security Password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="2fO-bK-2of">
-                                <rect key="frame" x="101.5" y="74" width="211" height="25.5"/>
-                                <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="20"/>
-                                <color key="textColor" red="0.035294117649999998" green="0.078431372550000003" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4YA-nq-sBC" customClass="PinInputView" customModule="Decred_Wallet" customModuleProvider="target">
-                                <rect key="frame" x="20.5" y="114.5" width="373" height="30"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="tTh-ef-kAt"/>
-                                </constraints>
-                            </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="1CY-jq-OSD">
-                                <rect key="frame" x="92" y="194.5" width="230" height="310"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="nfT-VP-RET">
-                                        <rect key="frame" x="0.0" y="0.0" width="230" height="70"/>
-                                        <subviews>
-                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VkY-VB-EfN" customClass="Button" customModule="Decred_Wallet" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="VkY-VB-EfN" secondAttribute="height" multiplier="1:1" id="jIh-9w-yL1"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="SourceSansPro-Bold" family="Source Sans Pro" pointSize="27"/>
-                                                <state key="normal" title="1">
-                                                    <color key="titleColor" red="0.28235294119999998" green="0.33725490200000002" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="35"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="onDigitButtonTapped:" destination="SKa-iY-3vv" eventType="touchUpInside" id="NiO-cX-5uH"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FAa-9F-leS" customClass="Button" customModule="Decred_Wallet" customModuleProvider="target">
-                                                <rect key="frame" x="80" y="0.0" width="70" height="70"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="FAa-9F-leS" secondAttribute="height" multiplier="1:1" id="dyr-WY-nm5"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="SourceSansPro-Bold" family="Source Sans Pro" pointSize="27"/>
-                                                <state key="normal" title="2">
-                                                    <color key="titleColor" red="0.28235294119999998" green="0.33725490200000002" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="35"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="onDigitButtonTapped:" destination="SKa-iY-3vv" eventType="touchUpInside" id="sJN-bN-hUP"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g6V-k1-rIe" customClass="Button" customModule="Decred_Wallet" customModuleProvider="target">
-                                                <rect key="frame" x="160" y="0.0" width="70" height="70"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="g6V-k1-rIe" secondAttribute="height" multiplier="1:1" id="HYU-JP-LHZ"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="SourceSansPro-Bold" family="Source Sans Pro" pointSize="27"/>
-                                                <state key="normal" title="3">
-                                                    <color key="titleColor" red="0.28235294119999998" green="0.33725490200000002" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="35"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="onDigitButtonTapped:" destination="SKa-iY-3vv" eventType="touchUpInside" id="WnP-ga-fFP"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gp1-Xh-rcu">
-                                        <rect key="frame" x="0.0" y="80" width="230" height="70"/>
-                                        <subviews>
-                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RBw-iD-4xT" customClass="Button" customModule="Decred_Wallet" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="RBw-iD-4xT" secondAttribute="height" multiplier="1:1" id="Cim-N8-Yws"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="SourceSansPro-Bold" family="Source Sans Pro" pointSize="27"/>
-                                                <state key="normal" title="4">
-                                                    <color key="titleColor" red="0.28235294119999998" green="0.33725490200000002" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="35"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="onDigitButtonTapped:" destination="SKa-iY-3vv" eventType="touchUpInside" id="p1x-oF-0gm"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HUa-6W-AU4" customClass="Button" customModule="Decred_Wallet" customModuleProvider="target">
-                                                <rect key="frame" x="80" y="0.0" width="70" height="70"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="HUa-6W-AU4" secondAttribute="height" multiplier="1:1" id="Eai-aA-jla"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="SourceSansPro-Bold" family="Source Sans Pro" pointSize="27"/>
-                                                <state key="normal" title="5">
-                                                    <color key="titleColor" red="0.28235294119999998" green="0.33725490200000002" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="35"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="onDigitButtonTapped:" destination="SKa-iY-3vv" eventType="touchUpInside" id="PHj-mm-WBf"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIl-Wu-lfq" customClass="Button" customModule="Decred_Wallet" customModuleProvider="target">
-                                                <rect key="frame" x="160" y="0.0" width="70" height="70"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="dIl-Wu-lfq" secondAttribute="height" multiplier="1:1" id="Mm2-rT-wmA"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="SourceSansPro-Bold" family="Source Sans Pro" pointSize="27"/>
-                                                <state key="normal" title="6">
-                                                    <color key="titleColor" red="0.28235294119999998" green="0.33725490200000002" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="35"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="onDigitButtonTapped:" destination="SKa-iY-3vv" eventType="touchUpInside" id="WHY-Xe-d7m"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="YJB-HA-On3">
-                                        <rect key="frame" x="0.0" y="160" width="230" height="70"/>
-                                        <subviews>
-                                            <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xlE-sx-F3G" customClass="Button" customModule="Decred_Wallet" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="xlE-sx-F3G" secondAttribute="height" multiplier="1:1" id="2Bt-Ub-vTU"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="SourceSansPro-Bold" family="Source Sans Pro" pointSize="27"/>
-                                                <state key="normal" title="7">
-                                                    <color key="titleColor" red="0.28235294119999998" green="0.33725490200000002" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="35"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="onDigitButtonTapped:" destination="SKa-iY-3vv" eventType="touchUpInside" id="HSJ-fB-fZU"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jqz-Sh-6jK" customClass="Button" customModule="Decred_Wallet" customModuleProvider="target">
-                                                <rect key="frame" x="80" y="0.0" width="70" height="70"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="jqz-Sh-6jK" secondAttribute="height" multiplier="1:1" id="gYd-oR-w9L"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="SourceSansPro-Bold" family="Source Sans Pro" pointSize="27"/>
-                                                <state key="normal" title="8">
-                                                    <color key="titleColor" red="0.28235294119999998" green="0.33725490200000002" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="35"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="onDigitButtonTapped:" destination="SKa-iY-3vv" eventType="touchUpInside" id="kYp-hm-oJd"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Rg-I4-oi3" customClass="Button" customModule="Decred_Wallet" customModuleProvider="target">
-                                                <rect key="frame" x="160" y="0.0" width="70" height="70"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="4Rg-I4-oi3" secondAttribute="height" multiplier="1:1" id="ih4-8E-7sO"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="SourceSansPro-Bold" family="Source Sans Pro" pointSize="27"/>
-                                                <state key="normal" title="9">
-                                                    <color key="titleColor" red="0.28235294119999998" green="0.33725490200000002" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="35"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="onDigitButtonTapped:" destination="SKa-iY-3vv" eventType="touchUpInside" id="BkN-mz-2rz"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="MkD-DO-EwW">
-                                        <rect key="frame" x="0.0" y="240" width="230" height="70"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qpk-M8-lK5">
-                                                <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oJu-xp-ivB">
-                                                        <rect key="frame" x="12" y="19.5" width="46" height="31"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="oJu-xp-ivB" secondAttribute="height" multiplier="3:2" id="1aL-HG-1s6"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                                        <state key="normal" image="backspace"/>
-                                                        <connections>
-                                                            <action selector="onBackspaceTapped:" destination="SKa-iY-3vv" eventType="touchUpInside" id="B2R-vb-pg2"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="oJu-xp-ivB" secondAttribute="trailing" constant="12" id="4Yj-kf-q0j"/>
-                                                    <constraint firstItem="oJu-xp-ivB" firstAttribute="leading" secondItem="qpk-M8-lK5" secondAttribute="leading" constant="12" id="DvU-ge-HZf"/>
-                                                    <constraint firstAttribute="width" secondItem="qpk-M8-lK5" secondAttribute="height" multiplier="1:1" id="O6D-uU-kGr"/>
-                                                    <constraint firstItem="oJu-xp-ivB" firstAttribute="centerX" secondItem="qpk-M8-lK5" secondAttribute="centerX" id="RKH-u0-aoD"/>
-                                                    <constraint firstItem="oJu-xp-ivB" firstAttribute="centerY" secondItem="qpk-M8-lK5" secondAttribute="centerY" id="rqd-TP-t46"/>
-                                                </constraints>
-                                            </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wem-EL-LbV" customClass="Button" customModule="Decred_Wallet" customModuleProvider="target">
-                                                <rect key="frame" x="80" y="0.0" width="70" height="70"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="Wem-EL-LbV" secondAttribute="height" multiplier="1:1" id="jPF-28-bVF"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="SourceSansPro-Bold" family="Source Sans Pro" pointSize="27"/>
-                                                <state key="normal" title="0">
-                                                    <color key="titleColor" red="0.28235294119999998" green="0.33725490200000002" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="35"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="onDigitButtonTapped:" destination="SKa-iY-3vv" eventType="touchUpInside" id="H20-2G-kqZ"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="niT-WW-MSO" customClass="Button" customModule="Decred_Wallet" customModuleProvider="target">
-                                                <rect key="frame" x="160" y="0.0" width="70" height="70"/>
-                                                <color key="backgroundColor" red="0.1766268909" green="0.84774124620000002" blue="0.63897907730000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="niT-WW-MSO" secondAttribute="height" multiplier="1:1" id="GBc-cm-wgf"/>
-                                                </constraints>
-                                                <state key="normal" image="img-checkmark">
-                                                    <color key="titleColor" red="0.28433507679999998" green="0.3355044425" blue="0.43102741239999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="35"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="onOkButtonTapped:" destination="SKa-iY-3vv" eventType="touchUpInside" id="Z03-Ir-fQg"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="230" id="9Xm-wn-JEl"/>
-                                </constraints>
-                            </stackView>
-                            <progressView contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aau-sy-kMa">
-                                <rect key="frame" x="117" y="166.5" width="180" height="8"/>
+                            <progressView hidden="YES" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aau-sy-kMa">
+                                <rect key="frame" x="173" y="146" width="217" height="8"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="180" id="EyF-ce-WKB"/>
                                     <constraint firstAttribute="height" constant="8" id="F0g-gx-ntR"/>
+                                    <constraint firstAttribute="width" constant="217" id="G9q-VG-ZLr"/>
                                 </constraints>
                                 <color key="trackTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </progressView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rJT-9u-LTj">
-                                <rect key="frame" x="207" y="160.5" width="0.0" height="0.0"/>
-                                <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
-                                <color key="textColor" red="0.76862745099999996" green="0.79607843140000001" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="xibLocalizedStringKey" value="pinStrength"/>
-                                </userDefinedRuntimeAttributes>
-                            </label>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CY7-XY-0kP">
-                                <rect key="frame" x="25" y="77" width="20" height="20"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Spending PIN" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hch-P8-xx9" customClass="FloatingLabelTextField" customModule="Decred_Wallet" customModuleProvider="target">
+                                <rect key="frame" x="24" y="68" width="366" height="48"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="5Fp-uK-zr1"/>
-                                    <constraint firstAttribute="width" constant="20" id="YB1-FN-aRH"/>
+                                    <constraint firstAttribute="height" constant="48" id="Sxd-tU-rGa"/>
                                 </constraints>
-                                <state key="normal" image="cancel">
-                                    <color key="titleColor" red="0.035294117649999998" green="0.078431372550000003" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="password"/>
+                            </textField>
+                            <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm spending PIN" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R46-Gg-oWn" customClass="FloatingLabelTextField" customModule="Decred_Wallet" customModuleProvider="target">
+                                <rect key="frame" x="24" y="180" width="366" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="ZfQ-O2-17x"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="password"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TuL-zv-aYr">
+                                <rect key="frame" x="250" y="120" width="140" height="12"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="cGq-18-xCD"/>
+                                    <constraint firstAttribute="height" constant="12" id="xsF-8v-BdD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ni6-BR-PU8">
+                                <rect key="frame" x="40" y="120" width="194" height="12"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="12" id="E7T-rI-4dP"/>
+                                    <constraint firstAttribute="width" constant="194" id="EiO-Ok-dHN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXY-HN-Slq">
+                                <rect key="frame" x="40" y="232" width="230" height="12"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="230" id="4Be-jX-TCZ"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="12" id="pF8-NH-SG6"/>
+                                    <constraint firstAttribute="height" constant="12" id="uq6-ZD-MOJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PIN strength" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ut-Lp-1lp">
+                                <rect key="frame" x="24" y="140" width="86" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="rzB-lj-tNF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SourceSansPro-SemiBold" family="Source Sans Pro" pointSize="16"/>
+                                <color key="textColor" red="0.23999999999999999" green="0.34999999999999998" blue="0.45000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Irb-id-mc4">
+                                <rect key="frame" x="311" y="252" width="79" height="40"/>
+                                <color key="backgroundColor" red="0.77000000000000002" green="0.80000000000000004" blue="0.81999999999999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="3eo-1S-fFG"/>
+                                    <constraint firstAttribute="width" constant="79" id="iZm-lW-fiN"/>
+                                </constraints>
+                                <state key="normal" title="Create">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="onCancelButtonTapped:" destination="SKa-iY-3vv" eventType="touchUpInside" id="feC-Z5-0ZR"/>
+                                    <action selector="createTapped:" destination="SKa-iY-3vv" eventType="touchUpInside" id="2lr-60-Ru1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hE5-Xg-wZu">
+                                <rect key="frame" x="220" y="252" width="79" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="KXs-Hw-JLO"/>
+                                    <constraint firstAttribute="width" constant="79" id="vgu-tU-bpZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SourceSansPro-SemiBold" family="Source Sans Pro" pointSize="17"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="onCancelButtonTapped:" destination="SKa-iY-3vv" eventType="touchUpInside" id="Uoo-pY-Xi8"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.95294117649999999" green="0.96078431369999995" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="4YA-nq-sBC" firstAttribute="centerX" secondItem="MZP-zs-4TF" secondAttribute="centerX" id="21f-Hb-Uc6"/>
-                            <constraint firstItem="CY7-XY-0kP" firstAttribute="centerY" secondItem="2fO-bK-2of" secondAttribute="centerY" id="8UV-k5-3rV"/>
-                            <constraint firstItem="aau-sy-kMa" firstAttribute="centerX" secondItem="hEG-La-4vV" secondAttribute="centerX" id="EDd-bb-MFz"/>
-                            <constraint firstItem="rJT-9u-LTj" firstAttribute="top" secondItem="4YA-nq-sBC" secondAttribute="bottom" constant="16" id="KLz-tj-xyg"/>
-                            <constraint firstItem="2fO-bK-2of" firstAttribute="top" secondItem="hEG-La-4vV" secondAttribute="top" constant="30" id="MGX-Kl-2Sd"/>
-                            <constraint firstItem="4YA-nq-sBC" firstAttribute="top" secondItem="2fO-bK-2of" secondAttribute="bottom" constant="15" id="NSx-k7-pfS"/>
-                            <constraint firstItem="1CY-jq-OSD" firstAttribute="top" secondItem="aau-sy-kMa" secondAttribute="bottom" constant="20" id="NkH-Ir-Yny"/>
-                            <constraint firstItem="rJT-9u-LTj" firstAttribute="centerX" secondItem="hEG-La-4vV" secondAttribute="centerX" id="Nqz-yW-B4u"/>
-                            <constraint firstItem="2fO-bK-2of" firstAttribute="centerX" secondItem="hEG-La-4vV" secondAttribute="centerX" id="PP6-KJ-BLc"/>
-                            <constraint firstItem="1CY-jq-OSD" firstAttribute="centerX" secondItem="MZP-zs-4TF" secondAttribute="centerX" id="WKm-0f-0Jb"/>
-                            <constraint firstItem="2fO-bK-2of" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="CY7-XY-0kP" secondAttribute="trailing" constant="8" symbolic="YES" id="XFZ-FH-rbi"/>
-                            <constraint firstItem="aau-sy-kMa" firstAttribute="top" secondItem="rJT-9u-LTj" secondAttribute="bottom" constant="6" id="gJ0-6h-YEL"/>
-                            <constraint firstItem="CY7-XY-0kP" firstAttribute="leading" secondItem="hEG-La-4vV" secondAttribute="leading" constant="25" id="m4z-Wu-q6n"/>
-                            <constraint firstItem="4YA-nq-sBC" firstAttribute="width" secondItem="MZP-zs-4TF" secondAttribute="width" multiplier="0.9" id="wPN-Nu-cqq"/>
+                            <constraint firstItem="Ni6-BR-PU8" firstAttribute="top" secondItem="hch-P8-xx9" secondAttribute="bottom" constant="4" id="130-cK-cTh"/>
+                            <constraint firstItem="Irb-id-mc4" firstAttribute="top" secondItem="R46-Gg-oWn" secondAttribute="bottom" constant="24" id="3rO-u3-OS7"/>
+                            <constraint firstItem="Irb-id-mc4" firstAttribute="leading" secondItem="hE5-Xg-wZu" secondAttribute="trailing" constant="12" id="9B7-cU-E4X"/>
+                            <constraint firstItem="Ni6-BR-PU8" firstAttribute="leading" secondItem="hEG-La-4vV" secondAttribute="leading" constant="40" id="Ejd-wV-qhR"/>
+                            <constraint firstItem="hEG-La-4vV" firstAttribute="trailing" secondItem="aau-sy-kMa" secondAttribute="trailing" constant="24" id="Gg1-x9-uOZ"/>
+                            <constraint firstItem="hEG-La-4vV" firstAttribute="trailing" secondItem="TuL-zv-aYr" secondAttribute="trailing" constant="24" id="Gm4-hC-Ko6"/>
+                            <constraint firstItem="1Ut-Lp-1lp" firstAttribute="leading" secondItem="hEG-La-4vV" secondAttribute="leading" constant="24" id="LjT-ZQ-7P9"/>
+                            <constraint firstItem="hch-P8-xx9" firstAttribute="top" secondItem="hEG-La-4vV" secondAttribute="top" constant="24" id="Q01-06-FaL"/>
+                            <constraint firstItem="hEG-La-4vV" firstAttribute="trailing" secondItem="Irb-id-mc4" secondAttribute="trailing" constant="24" id="TDt-bx-6Kk"/>
+                            <constraint firstItem="aau-sy-kMa" firstAttribute="top" secondItem="TuL-zv-aYr" secondAttribute="bottom" constant="14" id="WYd-us-GeB"/>
+                            <constraint firstItem="R46-Gg-oWn" firstAttribute="leading" secondItem="hEG-La-4vV" secondAttribute="leading" constant="24" id="Y6X-St-Joa"/>
+                            <constraint firstItem="HXY-HN-Slq" firstAttribute="top" secondItem="R46-Gg-oWn" secondAttribute="bottom" constant="4" id="aSc-x2-Nze"/>
+                            <constraint firstItem="1Ut-Lp-1lp" firstAttribute="top" secondItem="Ni6-BR-PU8" secondAttribute="bottom" constant="8" id="cnT-bs-kWz"/>
+                            <constraint firstItem="hch-P8-xx9" firstAttribute="leading" secondItem="hEG-La-4vV" secondAttribute="leading" constant="24" id="fl5-9t-jyN"/>
+                            <constraint firstItem="HXY-HN-Slq" firstAttribute="leading" secondItem="hEG-La-4vV" secondAttribute="leading" constant="40" id="gyr-x5-fAh"/>
+                            <constraint firstItem="hEG-La-4vV" firstAttribute="trailing" secondItem="R46-Gg-oWn" secondAttribute="trailing" constant="24" id="qTs-BV-FrL"/>
+                            <constraint firstItem="R46-Gg-oWn" firstAttribute="top" secondItem="1Ut-Lp-1lp" secondAttribute="bottom" constant="20" id="qY1-it-Edz"/>
+                            <constraint firstItem="hE5-Xg-wZu" firstAttribute="top" secondItem="HXY-HN-Slq" secondAttribute="bottom" constant="8" id="tzQ-aD-JpG"/>
+                            <constraint firstItem="TuL-zv-aYr" firstAttribute="top" secondItem="hch-P8-xx9" secondAttribute="bottom" constant="4" id="u5q-ZL-TTd"/>
+                            <constraint firstItem="hEG-La-4vV" firstAttribute="trailing" secondItem="hch-P8-xx9" secondAttribute="trailing" constant="24" id="xtf-3c-slX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hEG-La-4vV"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="2n3-H2-ODn"/>
                     <connections>
-                        <outlet property="btnCommit" destination="niT-WW-MSO" id="hNV-gK-fNN"/>
-                        <outlet property="cancelBtn" destination="CY7-XY-0kP" id="YRW-ZR-EnR"/>
-                        <outlet property="headerText" destination="2fO-bK-2of" id="bAq-tq-os8"/>
-                        <outlet property="pinInputView" destination="4YA-nq-sBC" id="l5c-5H-pSz"/>
-                        <outlet property="pinStrengthLabel" destination="rJT-9u-LTj" id="5Ah-iU-QrX"/>
+                        <outlet property="btnCommit" destination="Irb-id-mc4" id="9p9-9Y-iaP"/>
+                        <outlet property="confirmPinErrorLabel" destination="HXY-HN-Slq" id="ch2-xq-Wb5"/>
+                        <outlet property="pinCount" destination="TuL-zv-aYr" id="hkN-eJ-iui"/>
+                        <outlet property="pinErrorLabel" destination="Ni6-BR-PU8" id="YKJ-RF-uh4"/>
+                        <outlet property="pinInput" destination="hch-P8-xx9" id="INn-LY-Kss"/>
+                        <outlet property="pinInputConfirm" destination="R46-Gg-oWn" id="6Qg-vA-6As"/>
+                        <outlet property="pinStrengthLabel" destination="1Ut-Lp-1lp" id="txc-Cx-siV"/>
                         <outlet property="prgsPinStrength" destination="aau-sy-kMa" id="Wmi-PX-KW1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ubd-bg-fVZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6180" y="-108"/>
+            <point key="canvasLocation" x="6269.5652173913049" y="-109.48660714285714"/>
         </scene>
         <!--Request Password View Controller-->
         <scene sceneID="eQ3-8A-h7c">
@@ -721,9 +514,4 @@
             <point key="canvasLocation" x="7337.68115942029" y="-457.36607142857139"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="backspace" width="73" height="46.5"/>
-        <image name="cancel" width="256" height="256"/>
-        <image name="img-checkmark" width="42" height="44"/>
-    </resources>
 </document>

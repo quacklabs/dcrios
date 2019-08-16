@@ -20,15 +20,7 @@ class FloatingLabelTextField: UITextField {
     var border = CALayer()
     var floatingLabel: UILabel!
     var placeHolderText: String?
-    
-    
-    
-    
-    
-    //weak var delegate: FloatingLabelTextFieldDelegate?
-    
-//    var isEditing: Signal = Signal<Bool>()
-    
+        
     @IBInspectable
     var floatingLabelColor: UIColor = UIColor.appColors.decredBlue {
         didSet {
@@ -44,7 +36,10 @@ class FloatingLabelTextField: UITextField {
         }
     }
         
-    var floatingLabelHeight: CGFloat = 14
+    var floatingLabelHeight: CGFloat? = 15
+    var floatingLabelWidth: CGFloat?
+    
+    let maxLabelSize: CGSize = CGSize(width: 580, height: 9999)
     
     
     var button = UIButton(type: .custom)
@@ -63,12 +58,12 @@ class FloatingLabelTextField: UITextField {
         floatingLabel = UILabel(frame: floatingLabelFrame)
         floatingLabel.textColor = floatingLabelColor
         floatingLabel.font = floatingLabelFont
-        floatingLabel.backgroundColor = UIColor.white
         floatingLabel.text = self.placeholder
+        
         
         self.addSubview(floatingLabel)
         placeHolderText = placeholder
-        layer.borderWidth = 1.0
+        layer.borderWidth = 0.8
         borderStyle = .roundedRect;
         
         
@@ -81,11 +76,12 @@ class FloatingLabelTextField: UITextField {
     @objc func addFloatingLabel(){
         if self.text == "" {
             UIView.animate(withDuration: 0.23) {
-                self.floatingLabel.frame = CGRect(x: 10, y: -10, width: self.frame.width, height: self.floatingLabelHeight)
-                self.floatingLabel.sizeToFit()
+                let expectedSize: CGSize = self.floatingLabel.sizeThatFits(self.maxLabelSize)
+                self.floatingLabel.frame = CGRect(x: 10, y: -9, width: expectedSize.width, height: self.floatingLabelHeight!)
             }
             self.placeholder = ""
         }
+        floatingLabel.layer.backgroundColor = UIColor.init(hex: "#FFFFFF").cgColor
         layer.borderColor = UIColor.appColors.decredBlue.cgColor
     }
     
