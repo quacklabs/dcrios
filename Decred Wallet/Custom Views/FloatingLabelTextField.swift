@@ -16,26 +16,38 @@ public protocol FloatingLabelTextFieldDelegate: class{
 
 class FloatingLabelTextField: UITextField {
     
+    
+    var border = CALayer()
     var floatingLabel: UILabel!
     var placeHolderText: String?
+    
+    
+    
+    
     
     //weak var delegate: FloatingLabelTextFieldDelegate?
     
 //    var isEditing: Signal = Signal<Bool>()
     
+    @IBInspectable
     var floatingLabelColor: UIColor = UIColor.appColors.decredBlue {
         didSet {
             self.floatingLabel.textColor = floatingLabelColor
         }
     }
-    var floatingLabelFont: UIFont = UIFont.systemFont(ofSize: 12) {
+    
+    @IBInspectable
+    var floatingLabelFont: UIFont = UIFont.systemFont(ofSize: 14) {
     
         didSet {
             self.floatingLabel.font = floatingLabelFont
         }
     }
         
-    var floatingLabelHeight: CGFloat = 12
+    var floatingLabelHeight: CGFloat = 14
+    
+    
+    var button = UIButton(type: .custom)
     
     
     override init(frame: CGRect) {
@@ -46,62 +58,66 @@ class FloatingLabelTextField: UITextField {
         
         super.init(coder: aDecoder)
         
-        
-        let floatingLabelFrame = CGRect(x: 10, y: 0, width: frame.width, height: 0)
+        // Add the floating label
+        let floatingLabelFrame = CGRect(x: 10, y: 0, width: self.frame.width, height: 0)
         floatingLabel = UILabel(frame: floatingLabelFrame)
         floatingLabel.textColor = floatingLabelColor
         floatingLabel.font = floatingLabelFont
-//        floatingLabel.backgroundColor = UIColor.white
+        floatingLabel.backgroundColor = UIColor.white
         floatingLabel.text = self.placeholder
         
         self.addSubview(floatingLabel)
         placeHolderText = placeholder
+        layer.borderWidth = 1.0
+        borderStyle = .roundedRect;
         
-        NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidBeginEditing), name: UITextField.textDidBeginEditingNotification, object: self)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidEndEditing), name: UITextField.textDidEndEditingNotification, object: self)
-    
-    
+        self.addTarget(self, action: #selector(self.addFloatingLabel), for: .editingDidBegin)
+        self.addTarget(self, action: #selector(self.removeFloatingLabel), for: .editingDidEnd)
+        
     }
-        
-    @objc func textFieldDidBeginEditing(_ textField: UITextField) {
     
+    // Add a floating label here
+    @objc func addFloatingLabel(){
         if self.text == "" {
-            UIView.animate(withDuration: 0.3) {
-                let yAxis: CGFloat = self.floatingLabelHeight
-            self.floatingLabel.frame = CGRect(x: 8, y: -yAxis, width: self.frame.width, height: self.floatingLabelHeight)
+            UIView.animate(withDuration: 0.23) {
+                self.floatingLabel.frame = CGRect(x: 10, y: -10, width: self.frame.width, height: self.floatingLabelHeight)
+                self.floatingLabel.sizeToFit()
             }
-        self.placeholder = ""
+            self.placeholder = ""
         }
+        layer.borderColor = UIColor.appColors.decredBlue.cgColor
+    }
+    
+    
+    
+    
+    //Remove floating label
+    @objc func removeFloatingLabel(){
+            if self.text == "" {
+                UIView.animate(withDuration: 0.1) {
+                    self.floatingLabel.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: 0)
+                }
+                
+                self.placeholder = placeHolderText
+            }
+        
+        layer.borderColor = UIColor.appColors.darkGray.cgColor
+    }
+    
+    func addViewPasswordButton(){
+        button.setImage(UIImage(named: "icon-eye"), for: .normal)
+        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -16, bottom: 0, right: 0)
+        button.frame = CGRect(x: CGFloat(self.frame.size.width - 22), y: CGFloat(16), width: CGFloat(22), height: CGFloat(16))
+        
+        button.addTarget(self, action: #selector(self.toggleSecureInput), for: .touchUpInside)
+        rightView = button
+        rightViewMode = .always
         
     }
-        
-    @objc func textFieldDidEndEditing(_ textField: UITextField) {
     
-        if self.text == "" {
-        UIView.animate(withDuration: 0.1) {
-        self.floatingLabel.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: 0)
-        }
-        self.placeholder = placeHolderText
-        }
-        
-       
-    }
-    deinit {
     
-        NotificationCenter.default.removeObserver(self)
-    
+    @objc func toggleSecureInput(){
+        isSecureTextEntry.toggle()
     }
 }
-//
-//
-//extension FloatingLabelTextField: FloatingLabelTextFieldDelegate{
-//    func showFloatinglabel(text: String) {
-//
-//    }
-//
-//
-//}
-
-
-

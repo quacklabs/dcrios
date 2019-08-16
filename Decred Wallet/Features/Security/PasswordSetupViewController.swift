@@ -146,5 +146,7 @@ class PasswordSetupViewController: SecurityBaseViewController, UITextFieldDelega
         tfPassword.layer.cornerRadius = 7
         tfConfirmPassword.layer.cornerRadius = 7
         createBtn.layer.cornerRadius = 7
+        tfPassword.addViewPasswordButton()
+        tfConfirmPassword.addViewPasswordButton()
     }
 }
