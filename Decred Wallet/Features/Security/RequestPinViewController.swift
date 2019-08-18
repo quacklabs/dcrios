@@ -79,13 +79,6 @@ class RequestPinViewController: SecurityBaseViewController {
             confirmPinErrorLabel.isHidden = false
             confirmPinErrorLabel.text = "PINs did not match. Try again"
             pinInputConfirm.becomeFirstResponder()
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 1){
-//                self.prgsPinStrength.progress = 0
-//
-//                // We're re-requesting input, show the strength meter
-//                self.pinStrengthLabel.isHidden = false
-//                self.prgsPinStrength.isHidden = false
-//            }
         }else{
             if self.tabBarController == nil{
                 self.dismissView()

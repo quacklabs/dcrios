@@ -314,9 +314,9 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="password"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TuL-zv-aYr">
-                                <rect key="frame" x="250" y="120" width="140" height="12"/>
+                                <rect key="frame" x="295" y="120" width="79" height="12"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="140" id="cGq-18-xCD"/>
+                                    <constraint firstAttribute="width" constant="79" id="cGq-18-xCD"/>
                                     <constraint firstAttribute="height" constant="12" id="xsF-8v-BdD"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="12"/>
@@ -387,7 +387,7 @@
                             <constraint firstItem="Irb-id-mc4" firstAttribute="leading" secondItem="hE5-Xg-wZu" secondAttribute="trailing" constant="12" id="9B7-cU-E4X"/>
                             <constraint firstItem="Ni6-BR-PU8" firstAttribute="leading" secondItem="hEG-La-4vV" secondAttribute="leading" constant="40" id="Ejd-wV-qhR"/>
                             <constraint firstItem="hEG-La-4vV" firstAttribute="trailing" secondItem="aau-sy-kMa" secondAttribute="trailing" constant="24" id="Gg1-x9-uOZ"/>
-                            <constraint firstItem="hEG-La-4vV" firstAttribute="trailing" secondItem="TuL-zv-aYr" secondAttribute="trailing" constant="24" id="Gm4-hC-Ko6"/>
+                            <constraint firstItem="hEG-La-4vV" firstAttribute="trailing" secondItem="TuL-zv-aYr" secondAttribute="trailing" constant="40" id="Gm4-hC-Ko6"/>
                             <constraint firstItem="1Ut-Lp-1lp" firstAttribute="leading" secondItem="hEG-La-4vV" secondAttribute="leading" constant="24" id="LjT-ZQ-7P9"/>
                             <constraint firstItem="hch-P8-xx9" firstAttribute="top" secondItem="hEG-La-4vV" secondAttribute="top" constant="24" id="Q01-06-FaL"/>
                             <constraint firstItem="hEG-La-4vV" firstAttribute="trailing" secondItem="Irb-id-mc4" secondAttribute="trailing" constant="24" id="TDt-bx-6Kk"/>

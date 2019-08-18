@@ -7,12 +7,6 @@
 //
 
 import UIKit
-import Signals
-
-
-public protocol FloatingLabelTextFieldDelegate: class{
-    func showFloatinglabel(text: String)
-}
 
 class FloatingLabelTextField: UITextField {
     
@@ -20,13 +14,17 @@ class FloatingLabelTextField: UITextField {
     var border = CALayer()
     var floatingLabel: UILabel!
     var placeHolderText: String?
-        
+    
+//    override var isSecureTextEntry: Bool = false
+    
     @IBInspectable
     var floatingLabelColor: UIColor = UIColor.appColors.decredBlue {
         didSet {
             self.floatingLabel.textColor = floatingLabelColor
         }
     }
+    
+    
     
     @IBInspectable
     var floatingLabelFont: UIFont = UIFont.systemFont(ofSize: 14) {
@@ -36,10 +34,9 @@ class FloatingLabelTextField: UITextField {
         }
     }
         
-    var floatingLabelHeight: CGFloat? = 15
-    var floatingLabelWidth: CGFloat?
+    var floatingLabelHeight: CGFloat? = 14
     
-    let maxLabelSize: CGSize = CGSize(width: 580, height: 9999)
+    let maxLabelSize: CGSize = CGSize(width: 1024, height: 1024)
     
     
     var button = UIButton(type: .custom)
@@ -52,20 +49,10 @@ class FloatingLabelTextField: UITextField {
     required init?(coder aDecoder: NSCoder) {
         
         super.init(coder: aDecoder)
-        
-        // Add the floating label
-        let floatingLabelFrame = CGRect(x: 10, y: 0, width: self.frame.width, height: 0)
-        floatingLabel = UILabel(frame: floatingLabelFrame)
-        floatingLabel.textColor = floatingLabelColor
-        floatingLabel.font = floatingLabelFont
-        floatingLabel.text = self.placeholder
-        
-        
-        self.addSubview(floatingLabel)
+        floatingLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 0))
         placeHolderText = placeholder
         layer.borderWidth = 0.8
         borderStyle = .roundedRect;
-        
         
         self.addTarget(self, action: #selector(self.addFloatingLabel), for: .editingDidBegin)
         self.addTarget(self, action: #selector(self.removeFloatingLabel), for: .editingDidEnd)
@@ -75,14 +62,26 @@ class FloatingLabelTextField: UITextField {
     // Add a floating label here
     @objc func addFloatingLabel(){
         if self.text == "" {
-            UIView.animate(withDuration: 0.23) {
-                let expectedSize: CGSize = self.floatingLabel.sizeThatFits(self.maxLabelSize)
-                self.floatingLabel.frame = CGRect(x: 10, y: -9, width: expectedSize.width, height: self.floatingLabelHeight!)
+            floatingLabel.textColor = floatingLabelColor
+            floatingLabel.font = floatingLabelFont
+            floatingLabel.text = self.placeholder
+            floatingLabel.isOpaque = true
+            floatingLabel.textAlignment = .center
+            
+            UIView.animate(withDuration: 0.4) {
+                self.layer.borderColor = UIColor.appColors.decredBlue.cgColor
+                self.floatingLabel.frame = CGRect(x: 10, y: -9, width: self.frame.width, height: self.floatingLabelHeight!)
+                self.floatingLabel.layer.backgroundColor = UIColor.init(hex: "#FFFFFF").withAlphaComponent(1).cgColor
+                self.floatingLabel.sizeToFit()
+                self.addSubview(self.floatingLabel)
             }
+            
+            
             self.placeholder = ""
         }
-        floatingLabel.layer.backgroundColor = UIColor.init(hex: "#FFFFFF").cgColor
-        layer.borderColor = UIColor.appColors.decredBlue.cgColor
+        self.bringSubviewToFront(self.subviews.last!)
+        self.sendSubviewToBack(self.subviews.first!)
+        
     }
     
     
@@ -92,7 +91,8 @@ class FloatingLabelTextField: UITextField {
     @objc func removeFloatingLabel(){
             if self.text == "" {
                 UIView.animate(withDuration: 0.1) {
-                    self.floatingLabel.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: 0)
+                    self.subviews.forEach{ $0.removeFromSuperview() }
+                    self.setNeedsDisplay()
                 }
                 
                 self.placeholder = placeHolderText
