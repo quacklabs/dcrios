@@ -80,8 +80,6 @@ class FloatingLabelTextField: UITextField {
             self.placeholder = ""
         }
         self.bringSubviewToFront(self.subviews.last!)
-        self.sendSubviewToBack(self.subviews.first!)
-        
     }
     
     
