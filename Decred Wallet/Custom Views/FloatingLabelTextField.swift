@@ -66,20 +66,21 @@ class FloatingLabelTextField: UITextField {
             floatingLabel.font = floatingLabelFont
             floatingLabel.text = self.placeholder
             floatingLabel.isOpaque = true
-            floatingLabel.textAlignment = .center
+            self.floatingLabel.layer.backgroundColor = UIColor.init(hex: "#FFFFFF").withAlphaComponent(1).cgColor
             
             UIView.animate(withDuration: 0.4) {
                 self.layer.borderColor = UIColor.appColors.decredBlue.cgColor
                 self.floatingLabel.frame = CGRect(x: 10, y: -9, width: self.frame.width, height: self.floatingLabelHeight!)
-                self.floatingLabel.layer.backgroundColor = UIColor.init(hex: "#FFFFFF").withAlphaComponent(1).cgColor
                 self.floatingLabel.sizeToFit()
+                self.floatingLabel.setNeedsDisplay()
+                self.floatingLabel.drawText(in: self.floatingLabel.frame)
                 self.addSubview(self.floatingLabel)
             }
             
             
             self.placeholder = ""
         }
-        self.bringSubviewToFront(self.subviews.last!)
+//        self.bringSubviewToFront(self.subviews.last!)
     }
     
     
@@ -88,7 +89,7 @@ class FloatingLabelTextField: UITextField {
     //Remove floating label
     @objc func removeFloatingLabel(){
             if self.text == "" {
-                UIView.animate(withDuration: 0.1) {
+                UIView.animate(withDuration: 0.13) {
                     self.subviews.forEach{ $0.removeFromSuperview() }
                     self.setNeedsDisplay()
                 }

@@ -107,21 +107,21 @@ class OverviewViewController: UIViewController {
         self.recentActivityTableView.separatorStyle = .none
     }
     
-    @IBAction func showAllTransactionsButtonTap(_ sender: Any) {
-        self.navigateToMenu(.history)
-    }
-    
-    @IBAction func showSendPage(_ sender: Any) {
-        self.navigateToMenu(.send)
-    }
-    
-    @IBAction func showReceivePage(_ sender: Any) {
-        self.navigateToMenu(.receive)
-    }
+//    @IBAction func showAllTransactionsButtonTap(_ sender: Any) {
+//        self.navigateToMenu(.history)
+//    }
+//
+//    @IBAction func showSendPage(_ sender: Any) {
+//        self.navigateToMenu(.send)
+//    }
+//
+//    @IBAction func showReceivePage(_ sender: Any) {
+//        self.navigateToMenu(.receive)
+//    }
     
     func navigateToMenu(_ menuItem: MenuItem) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
-            self.navigationMenuViewController()?.changeActivePage(to: menuItem)
+            NavigationMenuController().changeActiveTab(to: menuItem)
         }
     }
 }

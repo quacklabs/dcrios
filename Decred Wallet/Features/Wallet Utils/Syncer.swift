@@ -8,6 +8,7 @@
 
 import Foundation
 import Dcrlibwallet
+import Signals
 
 protocol SyncProgressListenerProtocol {
     func onStarted(_ wasRestarted: Bool)

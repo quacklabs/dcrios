@@ -8,75 +8,31 @@
 
 import UIKit
 
-enum MenuItem: String, CaseIterable {
-    case overview = "Overview"
-    case history = "History"
-    case send = "Send"
-    case receive = "Receive"
-    case accounts = "Accounts"
-    case security = "Security"
-    case settings = "Settings"
-    case help = "Help"
+enum MenuItem: Int, CaseIterable {
     
-    // Each menu item's VC is wrapped in a navigation controller to enable the display of a navigation bar on each page,
-    // and to allow each page perform VC navigations using `self.navigationController?.pushViewController`.
-    var viewController: UIViewController {
-        switch self {
-        case .overview:
-            return Storyboards.Overview.instantiateViewController(for: OverviewViewController.self).wrapInNavigationcontroller()
-            
-        case .history:
-            return TransactionHistoryViewController(nibName: "TransactionHistoryViewController", bundle: nil).wrapInNavigationcontroller()
-            
-        case .send:
-            return SendViewController.instance
-            
-        case .receive:
-            return Storyboards.Main.instantiateViewController(for: ReceiveViewController.self).wrapInNavigationcontroller()
-            
-        case .accounts:
-            return Storyboards.Main.instantiateViewController(for: AccountViewController.self).wrapInNavigationcontroller()
-            
-        case .security:
-            return Storyboards.SecurityMenu.instantiateViewController(for: SecurityMenuViewController.self).wrapInNavigationcontroller()
-            
-        case .settings:
-            return SettingsController.instantiate().wrapInNavigationcontroller()
-            
-        case .help:
-            return Storyboards.Main.instantiateViewController(for: HelpViewController.self).wrapInNavigationcontroller()
-        }
-    }
+    case overview = 0
+    case transactions = 1
+    case accounts = 2
+    case more = 3
     
     var icon: UIImage? {
         switch self {
         case .overview:
-            return UIImage(named: "overview")
+            return UIImage(named: "ic_overview01_24px")
             
-        case .history:
-            return UIImage(named: "history")
-            
-        case .send:
-            return  UIImage(named: "send")
-            
-        case .receive:
-            return UIImage(named: "receive")
+        case .transactions:
+            return UIImage(named: "ic_transactions02_24px")
             
         case .accounts:
-            return UIImage(named: "menu-account")
-            
-        case .security:
-            return UIImage(named: "security")
-            
-        case .settings:
-            return UIImage(named: "settings")
-            
-        case .help:
-            return UIImage(named: "help")
+            return UIImage(named: "ic_accounts02_24px")
+        
+        case .more:
+            return UIImage(named: "ic_menu2_24px")
+  
         }
     }
     
-    var displayTitle: String {
-        return NSLocalizedString(self.rawValue.lowercased(), comment: "")
-    }
+//    var displayTitle: String {
+//        return NSLocalizedString(self.rawValue.lowercased(), comment: "")
+//    }
 }

@@ -19,26 +19,27 @@ extension UIViewController {
         return UINavigationController(rootViewController: self)
     }
     
-    func navigationMenuViewController() -> NavigationMenuViewController? {
-        return self.slideMenuController()?.leftViewController as? NavigationMenuViewController
-    }
+//    func navigationMenuController() -> NavigationMenuController? {
+//        return
+////        return self.slideMenuController()?.leftViewController as? NavigationMenuViewController
+//    }
     
     func setupNavigationBar(withTitle title: String) {
         self.navigationController?.navigationBar.tintColor = UIColor.black
         self.navigationItem.title = title
         
         // setup slidemenucontroller (drawer icon and tap action)
-        self.addLeftBarButtonWithImage(UIImage(named: "ic_menu_black_24dp")!)
-        self.slideMenuController()?.removeLeftGestures()
-        self.slideMenuController()?.removeRightGestures()
-        self.slideMenuController()?.addLeftGestures()
-        self.slideMenuController()?.addRightGestures()
+//        self.addLeftBarButtonWithImage(UIImage(named: "ic_menu_black_24dp")!)
+//        self.slideMenuController()?.removeLeftGestures()
+//        self.slideMenuController()?.removeRightGestures()
+//        self.slideMenuController()?.addLeftGestures()
+//        self.slideMenuController()?.addRightGestures()
     }
     
     func removeNavigationBarItem() {
         self.navigationItem.leftBarButtonItem = nil
-        self.slideMenuController()?.removeLeftGestures()
-        self.slideMenuController()?.removeRightGestures()
+//        self.slideMenuController()?.removeLeftGestures()
+//        self.slideMenuController()?.removeRightGestures()
     }
     
     func hideKeyboardOnTapAround() {
