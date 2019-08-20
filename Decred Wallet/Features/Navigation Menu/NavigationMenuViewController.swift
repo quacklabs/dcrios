@@ -10,11 +10,32 @@ import Dcrlibwallet
 
 class NavigationMenuController: UITabBarController{
     
-    
+    var isNewWallet: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if self.isNewWallet{
+            let label =  UILabel(frame: CGRect(x: 129, y: 128, width: 117, height: 32))
+            label.textAlignment = .center
+            label.backgroundColor = UIColor.appColors.decredGreen
+            label.font = UIFont.systemFont(ofSize: 16)
+            label.text = LocalizedStrings.walletCreated
+            label.textColor = UIColor.white
+            label.layer.cornerRadius = 7
+           
+            
+            UIView.animate(withDuration: 4.0){
+                self.view.addSubview(label)
+                label.translatesAutoresizingMaskIntoConstraints = true
+                label.clipsToBounds = true
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4){
+                UIView.animate(withDuration: 3.0){
+                    label.removeFromSuperview()
+                }
+            }
+        }
         
         self.selectedIndex = 0
     }
@@ -28,9 +49,14 @@ class NavigationMenuController: UITabBarController{
         // wallet is open, setup sync listener and start notification listener
         AppDelegate.walletLoader.syncer.registerEstimatedSyncProgressListener()
         AppDelegate.walletLoader.notification.startListeningForNotifications()
-        let defaultView = Storyboards.NavigationMenu.instantiateViewController(for: self)
         
-        AppDelegate.shared.setAndDisplayRootViewController(defaultView)
+        let startView = Storyboards.NavigationMenu.initialViewController()!
+        
+        
+//        let navMenu = Storyboards.NavigationMenu.instantiateViewController(for: self)
+//        self.isNewWallet = isNewWallet
+        
+        AppDelegate.shared.setAndDisplayRootViewController(startView)
         
     }
     
