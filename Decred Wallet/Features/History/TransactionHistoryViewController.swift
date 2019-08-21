@@ -19,19 +19,16 @@ class TransactionHistoryViewController: UIViewController {
         return refreshControl
     }()
     
-    var currentFilter: Int32? = 0
     
     @IBOutlet weak var syncLabel: UILabel!
-    
     @IBOutlet var tableView: UITableView!
     @IBOutlet var btnFilter: DropMenuButton!
+    
     var FromMenu = true
     var visible:Bool = false
     
     var filterMenu = [LocalizedStrings.all] as [String]
-    var filtertitle = [0] as [Int]
     
-    var Filtercontent = [Transaction]()
     var transactions = [Transaction]()
     
     override func viewDidLoad() {
@@ -40,8 +37,8 @@ class TransactionHistoryViewController: UIViewController {
         self.tableView.addSubview(self.refreshControl)
         self.tableView.register(UINib(nibName: TransactionTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: TransactionTableViewCell.identifier)
 
-        AppDelegate.walletLoader.notification.registerListener(for: "(\(self)", newTxistener: self)
-        AppDelegate.walletLoader.notification.registerListener(for: "(\(self)", confirmedTxListener: self)
+        AppDelegate.walletLoader.notification.registerListener(for: "\(self)", newTxistener: self)
+        AppDelegate.walletLoader.notification.registerListener(for: "\(self)", confirmedTxListener: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -82,7 +79,11 @@ class TransactionHistoryViewController: UIViewController {
         self.transactions.removeAll()
         var error: NSError?
         let allTransactions = AppDelegate.walletLoader.wallet?.getTransactions(0, txFilter: Int32(filter!), error: &error)
-        if error != nil || allTransactions == nil || allTransactions!.count == 0{
+        if error != nil{
+            print(error!.localizedDescription)
+        }
+        
+        if allTransactions == nil || allTransactions!.count == 0{
             self.showNoTransactions()
             return
         }
@@ -92,7 +93,6 @@ class TransactionHistoryViewController: UIViewController {
         self.tableView.separatorStyle = .singleLine
         self.refreshControl.endRefreshing()
         self.updateFilterDropdownItems()
-        return
     }
     
     func showNoTransactions() {
@@ -105,46 +105,15 @@ class TransactionHistoryViewController: UIViewController {
     
     func initFilterBtn() {
         self.btnFilter.initMenu(filterMenu) { [weak self] index, value in
-            self?.applyTxFilter(currentFilter: self!.filtertitle[index])
+            self?.applyTxFilter(currentFilter: index)
         }
     }
     
     func reloadTxsForCurrentFilter() {
-        var currentFilterItem = 0
-        if self.btnFilter.selectedItemIndex >= 0 && self.filtertitle.count > self.btnFilter.selectedItemIndex {
-            currentFilterItem = self.filtertitle[self.btnFilter.selectedItemIndex]
-        }
-        self.applyTxFilter(currentFilter: currentFilterItem)
+        self.applyTxFilter(currentFilter: self.btnFilter.selectedItemIndex)
     }
     
     func applyTxFilter(currentFilter: Int) {
-        var filterCount: Int? = 0
-        switch currentFilter {
-            case 1:
-                filterCount = transactions.filter{$0.Direction == 0 && $0.Type == GlobalConstants.Strings.REGULAR}.count
-                self.btnFilter.setTitle(LocalizedStrings.sent.appending("(\(filterCount!))"), for: .normal)
-                break
-            case 2:
-                filterCount = self.transactions.filter{$0.Direction == 1 && $0.Type == GlobalConstants.Strings.REGULAR}.count
-            self.btnFilter.setTitle(LocalizedStrings.received.appending("(\(filterCount!))"), for: .normal)
-            break
-        case 3:
-            filterCount = self.transactions.filter{$0.Direction == 2 && $0.Type == GlobalConstants.Strings.REGULAR}.count
-            self.btnFilter.setTitle(LocalizedStrings.yourself.appending("(\(filterCount!))"), for: .normal)
-            break
-        case 4:
-            filterCount = self.transactions.filter{$0.Type == GlobalConstants.Strings.REVOCATION || $0.Type == GlobalConstants.Strings.TICKET_PURCHASE || $0.Type == GlobalConstants.Strings.VOTE}.count
-            self.btnFilter.setTitle(LocalizedStrings.staking.appending("(\(filterCount!))"), for: .normal)
-            break
-        case 5:
-            filterCount = self.transactions.filter{$0.Type == GlobalConstants.Strings.COINBASE}.count
-            self.btnFilter.setTitle("Coinbase \(filterCount!)", for: .normal)
-            break
-        default:
-            filterCount = self.transactions.count
-            self.btnFilter.setTitle(LocalizedStrings.all.appending("(\(self.transactions.count))"), for: .normal)
-        }
-        
         refreshControl.showLoader(in: self.tableView)
         self.loadTransactions(filter: currentFilter)
         self.tableView.reloadData()
@@ -158,31 +127,22 @@ class TransactionHistoryViewController: UIViewController {
         let coinbaseCount = self.transactions.filter{$0.Type == GlobalConstants.Strings.COINBASE}.count
         
         self.btnFilter.items.removeAll()
-        self.btnFilter.setTitle(LocalizedStrings.all.appending("(\(self.transactions.count))"), for: .normal)
-        self.btnFilter.items.append(LocalizedStrings.all.appending("(\(self.transactions.count))"))
-        
-        self.filtertitle.removeAll()
-        self.filtertitle.append(0)
+        self.btnFilter.items.append(LocalizedStrings.all)
         
         if sentCount != 0 {
             self.btnFilter.items.append(LocalizedStrings.sent.appending("(\(sentCount))"))
-            self.filtertitle.append(1)
         }
         if ReceiveCount != 0 {
             self.btnFilter.items.append(LocalizedStrings.received.appending("(\(ReceiveCount))"))
-            self.filtertitle.append(2)
         }
         if yourselfCount != 0 {
             self.btnFilter.items.append(LocalizedStrings.yourself.appending("(\(yourselfCount))"))
-            self.filtertitle.append(3)
         }
         if stakeCount != 0 {
             self.btnFilter.items.append(LocalizedStrings.staking.appending("(\(stakeCount))"))
-            self.filtertitle.append(4)
         }
         if coinbaseCount != 0 {
             self.btnFilter.items.append("Coinbase (\(coinbaseCount))")
-            self.filtertitle.append(5)
         }
         
     }
