@@ -90,8 +90,9 @@ class FloatingLabelTextField: UITextField {
             
             self.placeholder = ""
         }
-        self.setNeedsDisplay()
+        
         bringSubviewToFront(subviews.last!)
+        self.setNeedsDisplay()
         
     }
     

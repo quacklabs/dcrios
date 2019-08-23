@@ -73,15 +73,10 @@ class ConfirmNewWalletSeedViewController: WalletSetupBaseViewController {
 //        self.definesPresentationContext = false
         securityVC.definesPresentationContext = false
 //        securityVC.modalPresentationStyle = .custom
-        securityVC.modalPresentationStyle = .pageSheet
+        securityVC.modalPresentationStyle = .formSheet
         securityVC.onUserEnteredPinOrPassword = { (pinOrPassword, securityType) in
             self.finalizeWalletSetup(seed, pinOrPassword, securityType)
         }
-        
-        
-        
-        
-        
         
         present(securityVC, animated: true)
 //        self.navigationController?.pushViewController(securityVC, animated: true)
