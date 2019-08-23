@@ -13,6 +13,8 @@ class FloatingLabelTextField: UITextField {
     
     var border = CALayer()
     var floatingLabel: UILabel!
+    
+    @IBInspectable
     var placeHolderText: String?
     
 //    override var isSecureTextEntry: Bool = false
@@ -21,6 +23,14 @@ class FloatingLabelTextField: UITextField {
     var floatingLabelColor: UIColor = UIColor.appColors.decredBlue {
         didSet {
             self.floatingLabel.textColor = floatingLabelColor
+            self.setNeedsDisplay()
+        }
+    }
+    
+    var floatingLabelBackground: UIColor = UIColor.white.withAlphaComponent(1) {
+        didSet {
+            self.floatingLabel.backgroundColor = floatingLabelBackground
+            self.setNeedsDisplay()
         }
     }
     
@@ -31,6 +41,7 @@ class FloatingLabelTextField: UITextField {
     
         didSet {
             self.floatingLabel.font = floatingLabelFont
+            self.setNeedsDisplay()
         }
     }
         
@@ -66,13 +77,12 @@ class FloatingLabelTextField: UITextField {
             floatingLabel.font = floatingLabelFont
             floatingLabel.text = self.placeholder
             floatingLabel.isOpaque = true
-            self.floatingLabel.layer.backgroundColor = UIColor.init(hex: "#FFFFFF").withAlphaComponent(1).cgColor
+            
             
             UIView.animate(withDuration: 0.4) {
                 self.layer.borderColor = UIColor.appColors.decredBlue.cgColor
-                self.floatingLabel.frame = CGRect(x: 10, y: -9, width: self.frame.width, height: self.floatingLabelHeight!)
-                self.floatingLabel.sizeToFit()
-                self.floatingLabel.setNeedsDisplay()
+                self.floatingLabel.frame = CGRect(x: 10, y: -9, width: self.frame.width, height: self.floatingLabelHeight!+2)
+//                self.floatingLabel.sizeToFit()
                 self.floatingLabel.drawText(in: self.floatingLabel.frame)
                 self.addSubview(self.floatingLabel)
             }
@@ -80,11 +90,10 @@ class FloatingLabelTextField: UITextField {
             
             self.placeholder = ""
         }
-//        self.bringSubviewToFront(self.subviews.last!)
+        self.setNeedsDisplay()
+        bringSubviewToFront(subviews.last!)
+        
     }
-    
-    
-    
     
     //Remove floating label
     @objc func removeFloatingLabel(){
