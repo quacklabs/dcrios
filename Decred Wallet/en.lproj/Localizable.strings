@@ -111,6 +111,7 @@
 "totalBalance" = "Total Balance";
 "restartingSynchronization" = "Restarting Synchronization";
 "startingSynchronization" = "Starting Synchronization";
+"transactions" = "Transactions";
 
 /* No Wifi Sync Connection */
 "notConnectedToWiFi" = "Not connected to WiFi.";

@@ -154,6 +154,7 @@ struct LocalizedStrings {
     static let security = NSLocalizedString("security", comment: "")
     static let settings = NSLocalizedString("settings", comment: "")
     static let help = NSLocalizedString("help", comment: "")
+    static let transactions = NSLocalizedString("transactions", comment: "")
     
     /* New Wallet Dialog */
     static let newWalletMsg = NSLocalizedString("newWalletMsg", comment: "")

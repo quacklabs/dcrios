@@ -14,8 +14,12 @@ enum Storyboards: String {
     case WalletSetup = "WalletSetup"
     case Security = "Security"
     case NavigationMenu = "NavigationMenu"
+    // Tab bar items
     case Overview = "Overview"
+    case Accounts = "Accounts"
     case Send = "Send"
+    case More = "More"
+    
     case Settings = "Settings"
     case TransactionFullDetailsViewController = "TransactionFullDetailsViewController"
     case SecurityMenu = "SecurityMenu"

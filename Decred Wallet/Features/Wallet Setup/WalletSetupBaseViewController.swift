@@ -28,7 +28,7 @@ class WalletSetupBaseViewController: UIViewController {
                 DispatchQueue.main.async {
                     progressHud.dismiss()
                     Settings.setValue(securityType, for: Settings.Keys.SpendingPassphraseSecurityType)
-                    NavigationMenuController.setupMenuAndLaunchApp(isNewWallet: true)
+                    NavigationMenuBaseController.setupMenuAndLaunchApp(isNewWallet: true)
                 }
             } catch let error {
                 DispatchQueue.main.async {

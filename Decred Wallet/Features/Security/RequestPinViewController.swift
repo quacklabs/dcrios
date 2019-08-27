@@ -83,7 +83,6 @@ class RequestPinViewController: SecurityBaseViewController {
             if self.tabBarController == nil{
                 self.dismissView()
             }
-            
             self.onUserEnteredPin!(pinInput.text!)
         }
     }

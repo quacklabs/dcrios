@@ -119,11 +119,11 @@ class OverviewViewController: UIViewController {
 //        self.navigateToMenu(.receive)
 //    }
     
-    func navigateToMenu(_ menuItem: MenuItem) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
-            NavigationMenuController().changeActiveTab(to: menuItem)
-        }
-    }
+//    func navigateToMenu(_ menuItem: MenuItem) {
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
+//            NavigationMenuController().changeActiveTab(to: menuItem)
+//        }
+//    }
 }
 
 extension OverviewViewController: NewTransactionNotificationProtocol, ConfirmedTransactionNotificationProtocol {
