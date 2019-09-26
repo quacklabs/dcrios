@@ -139,6 +139,13 @@
 "total"  = "total:";
 "stageTimes" = "Stage Times";
 "tapToViewInformation" = "Tap for more information";
+"syncStageDescription" = "%@ - %d%%";
+"latestBlockAge" = "Latest block %d% :- %@";
+"blockHeadersFetched" = "Block headers fetched";
+"syncProgressComplete" = "%d%%";
+"syncTimeLeft" = "%@ left";
+"syncSteps" = "%d/3";
+"syncingProgress" = "Syncing progress";
 
 /* Navigation Menu Items */
 "overview" = "Overview";
@@ -158,6 +165,20 @@
 "currentTotalBalance" = "Current Total Balance";
 "recentActivity" = "Recent Activity";
 "showAllTransactions" = "Show All Transactions";
+"backupSeedPhrase" = "Back up seed phrase";
+"walletStatus" = "Wallet Status";
+"walletSynced" = "Synced";
+"walletNotSynced" = "Not Synced";
+"backupWarningText" = "Verify your seed phrase backup so you \n can recover your funds when needed.";
+"connectedTo" = "Connected to %d peers";
+"online" = "online";
+"offline" = "Offline";
+"showDetails" = "Show details";
+"hideDetails" = "Hide details";
+"connectedPeersCount" = "Connected peers count";
+"peers" = "peers";
+"seeAll" = "See all";
+
 
 /* Transaction List/ History */
 "pending" = "Pending";
@@ -166,7 +187,7 @@
 "ticket" = "Ticket";
 "confirmedLive" = "Confirmed / Live";
 "confirmedImmature" = "Confirmed / Immature";
-"noTransactions" = "No Transactions";
+"noTransactions" = "No transactions yet";
 "sent" = "Sent";
 "received" = "Received";
 "yourself" = "Yourself";
